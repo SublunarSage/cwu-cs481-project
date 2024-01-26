@@ -1,0 +1,253 @@
+# Import this into Script Lab
+
+name: style api
+description: style api
+host: WORD
+api_set: {}
+script:
+  content: |
+    $("#chooseStyle").click(() => tryCatch(run));
+    $("#changeParaFmt").click(() => tryCatch(run1));
+    $("#changeFont").click(() => tryCatch(run2));
+    $("#importStylesFromJson").click(() => tryCatch(importStylesFromJson));
+    $("#count").click(() => tryCatch(getCount));
+    async function importStylesFromJson() {
+      await Word.run(async (context) => {
+        const str =
+          '{"styles":[{"baseStyle":"Default Paragraph Font","builtIn":false,"inUse":true,"linked":false,"nameLocal":"NewCharStyle","priority":2,"quickStyle":true,"type":"Character","unhideWhenUsed":false,"visibility":false,"paragraphFormat":null,"font":{"name":"DengXian Light","size":16.0,"bold":true,"italic":false,"color":"#F1A983","underline":"None","subscript":false,"superscript":true,"strikeThrough":true,"doubleStrikeThrough":false,"highlightColor":null,"hidden":false},"shading":{"backgroundPatternColor":"#FF0000"}},{"baseStyle":"Normal","builtIn":false,"inUse":true,"linked":false,"nextParagraphStyle":"NewParaStyle","nameLocal":"NewParaStyle","priority":1,"quickStyle":true,"type":"Paragraph","unhideWhenUsed":false,"visibility":false,"paragraphFormat":{"alignment":"Centered","firstLineIndent":0.0,"keepTogether":false,"keepWithNext":false,"leftIndent":72.0,"lineSpacing":18.0,"lineUnitAfter":0.0,"lineUnitBefore":0.0,"mirrorIndents":false,"outlineLevel":"OutlineLevelBodyText","rightIndent":72.0,"spaceAfter":30.0,"spaceBefore":30.0,"widowControl":true},"font":{"name":"DengXian","size":14.0,"bold":true,"italic":true,"color":"#8DD873","underline":"Single","subscript":false,"superscript":false,"strikeThrough":false,"doubleStrikeThrough":true,"highlightColor":null,"hidden":false}},{"baseStyle":"Table Normal","builtIn":false,"inUse":true,"linked":false,"nextParagraphStyle":"NewTableStyle","nameLocal":"NewTableStyle","priority":100,"type":"Table","unhideWhenUsed":false,"visibility":false,"paragraphFormat":{"alignment":"Left","firstLineIndent":0.0,"keepTogether":false,"keepWithNext":false,"leftIndent":0.0,"lineSpacing":12.0,"lineUnitAfter":0.0,"lineUnitBefore":0.0,"mirrorIndents":false,"outlineLevel":"OutlineLevelBodyText","rightIndent":0.0,"spaceAfter":0.0,"spaceBefore":0.0,"widowControl":true},"font":{"name":"DengXian","size":20.0,"bold":false,"italic":true,"color":"#D86DCB","underline":"None","subscript":false,"superscript":false,"strikeThrough":false,"doubleStrikeThrough":false,"highlightColor":null,"hidden":false},"tableStyle":{"allowBreakAcrossPage":true,"alignment":"Left","bottomCellMargin":0.0,"leftCellMargin":0.08,"rightCellMargin":0.08,"topCellMargin":0.0,"cellSpacing":0.0}}]}';
+        const styles = context.document.importStylesFromJson(str);
+        await context.sync();
+        console.log(styles);
+      });
+    }
+    async function getCount() {
+      // Gets the number of styles.
+      await Word.run(async (context) => {
+        const styles = context.document.getStyles();
+        const count = styles.getCount();
+        await context.sync();
+        console.log(`Number of styles: ${count.value}`);
+      });
+    }
+    async function run() {
+      await Word.run(async (context) => {
+        const styles = context.document.getStyles();
+        const styleName = $("#style")
+          .val()
+          .toString();
+        const style = styles.getByNameOrNullObject(styleName);
+        const parafmt = style.paragraphFormat;
+        const font = style.font;
+        style.load();
+        parafmt.load();
+        font.load();
+        await context.sync();
+        // console.log(style.type);
+        $("#alignment").val(parafmt.alignment);
+        $("#firstLineIndent").val(parafmt.firstLineIndent);
+        if (parafmt.keepTogether) $("#keepTogether").val(parafmt.keepTogether.toString());
+        else $("#keepTogether").val();
+        if (parafmt.keepWithNext) $("#keepWithNext").val(parafmt.keepWithNext.toString());
+        else $("#keepWithNext").val();
+        $("#leftIndent").val(parafmt.leftIndent);
+        $("#lineSpacing").val(parafmt.lineSpacing);
+        $("#lineUnitAfter").val(parafmt.lineUnitAfter);
+        $("#lineUnitBefore").val(parafmt.lineUnitBefore);
+        $("#outlineLevel").val(parafmt.outlineLevel);
+        $("#rightIndent").val(parafmt.rightIndent);
+        $("#spaceAfter").val(parafmt.spaceAfter);
+        $("#spaceBefore").val(parafmt.spaceBefore);
+        if (parafmt.widowControl) $("#widowControl").val(parafmt.widowControl.toString());
+        else $("#widowControl").val();
+        if (font.bold) $("#bold").val(font.bold.toString());
+        else $("#bold").val();
+        $("#color").val(font.color);
+        if (font.doubleStrikeThrough) $("#doubleStrikeThrough").val(font.doubleStrikeThrough.toString());
+        else $("#doubleStrikeThrough").val();
+        $("#highlightColor").val(font.highlightColor);
+        if (font.italic) $("#italic").val(font.italic.toString());
+        else $("#italic").val();
+        $("#name").val(font.name);
+        $("#size").val(font.size);
+        if (font.subscript) $("#subscript").val(font.subscript.toString());
+        else $("#subscript").val();
+        $("#underline").val(font.underline);
+      });
+    }
+    async function run1() {
+      await Word.run(async (context) => {
+        const styles = context.document.getStyles();
+        const styleName = $("#style")
+          .val()
+          .toString();
+        const style = styles.getByNameOrNullObject(styleName);
+        const parafmt = style.paragraphFormat;
+        parafmt.load();
+        await context.sync();
+        if ($("#alignment").val())
+          parafmt.alignment = $("#alignment")
+            .val()
+            .toString();
+        if ($("#firstLineIndent").val())
+          parafmt.firstLineIndent = Number.parseFloat(
+            $("#firstLineIndent")
+              .val()
+              .toString()
+          );
+        if ($("#keepTogether").val())
+          parafmt.keepTogether =
+            $("#keepTogether")
+              .val()
+              .toString() == "true";
+        if ($("#keepWithNext").val())
+          parafmt.keepWithNext =
+            $("#keepWithNext")
+              .val()
+              .toString() == "true";
+        if ($("#leftIndent").val())
+          parafmt.leftIndent = Number.parseFloat(
+            $("#leftIndent")
+              .val()
+              .toString()
+          );
+        if ($("#lineSpacing").val())
+          parafmt.lineSpacing = Number.parseFloat(
+            $("#lineSpacing")
+              .val()
+              .toString()
+          );
+        if ($("#lineUnitAfter").val())
+          parafmt.lineUnitAfter = Number.parseFloat(
+            $("#lineUnitAfter")
+              .val()
+              .toString()
+          );
+        if ($("#lineUnitBefore").val())
+          parafmt.lineUnitBefore = Number.parseFloat(
+            $("#lineUnitBefore")
+              .val()
+              .toString()
+          );
+        if ($("#outlineLevel").val())
+          parafmt.outlineLevel = $("#outlineLevel")
+            .val()
+            .toString();
+        if ($("#rightIndent").val())
+          parafmt.rightIndent = Number.parseFloat(
+            $("#rightIndent")
+              .val()
+              .toString()
+          );
+        if ($("#spaceAfter").val())
+          parafmt.spaceAfter = Number.parseFloat(
+            $("#spaceAfter")
+              .val()
+              .toString()
+          );
+        if ($("#spaceBefore").val())
+          parafmt.spaceBefore = Number.parseFloat(
+            $("#spaceBefore")
+              .val()
+              .toString()
+          );
+        if ($("#widowControl").val())
+          parafmt.widowControl =
+            $("#widowControl")
+              .val()
+              .toString() == "true";
+        parafmt.load();
+        await context.sync();
+        // console.log(parafmt);
+      });
+    }
+    async function run2() {
+      await Word.run(async (context) => {
+        const styles = context.document.getStyles();
+        const styleName = $("#style")
+          .val()
+          .toString();
+        const style = styles.getByNameOrNullObject(styleName);
+        const font = style.font;
+        font.load();
+        await context.sync();
+        if ($("#bold").val())
+          font.bold =
+            $("#bold")
+              .val()
+              .toString() == "true";
+        if ($("#color").val())
+          font.color = $("#color")
+            .val()
+            .toString();
+        if ($("#doubleStrikeThrough").val())
+          font.doubleStrikeThrough =
+            $("#doubleStrikeThrough")
+              .val()
+              .toString() == "true";
+        if ($("#highlightColor").val())
+          font.highlightColor = $("#highlightColor")
+            .val()
+            .toString();
+        if ($("#italic").val())
+          font.italic =
+            $("#italic")
+              .val()
+              .toString() == "true";
+        if ($("#name").val())
+          font.name = $("#name")
+            .val()
+            .toString();
+        if ($("#size").val())
+          font.size = Number.parseFloat(
+            $("#size")
+              .val()
+              .toString()
+          );
+        if ($("#subscript").val())
+          font.subscript =
+            $("#subscript")
+              .val()
+              .toString() == "true";
+        if ($("#underline").val())
+          font.underline = $("#underline")
+            .val()
+            .toString();
+        font.load();
+        await context.sync();
+        // console.log(font);
+      });
+    }
+    /** Default helper for invoking an action and handling errors. */
+    async function tryCatch(callback) {
+      try {
+        await callback();
+      } catch (error) {
+        // Note: In a production add-in, you'd want to notify the user through your add-in's UI.
+        console.error(error);
+      }
+    }
+  language: typescript
+template:
+  content: "<p>\n\t<h4>Get current number of styles</h4>\n\t<button id=\"count\" class=\"ms-Button\">\n                <span class=\"ms-Button-label\">Get count</span>\n        </button>\n</p>\n<p>\n\t<label>Style Name:</label>\n\t<input id=\"style\"/>\n\t<button id=\"chooseStyle\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Choose Style</span>\n  </button>\n</p>\n<hr />\n<label>Style ParagraphFormat</label>\n<p>\n\t<label>alignment:</label>\n\t<input id=\"alignment\"/>\n</p>\n\n\t<p>\n\t\t<label>firstLineIndent:</label>\n\t\t<input id=\"firstLineIndent\"/>\n</p>\n\t\t<p>\n\t\t\t<label>keepTogether:</label>\n\t\t\t<input id=\"keepTogether\"/>\n</p>\n\t\t\t<p>\n\t\t\t\t<label>keepWithNext:</label>\n\t\t\t\t<input id=\"keepWithNext\"/>\n</p>\n\t\t\t\t<p>\n\t\t\t\t\t<label>leftIndent:</label>\n\t\t\t\t\t<input id=\"leftIndent\"/>\n</p>\n\t\t\t\t\t<p>\n\t\t\t\t\t\t<label>lineSpacing:</label>\n\t\t\t\t\t\t<input id=\"lineSpacing\"/>\n</p>\n\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t<label>lineUnitAfter:</label>\n\t\t\t\t\t\t\t<input id=\"lineUnitAfter\"/>\n</p>\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<label>lineUnitBefore:</label>\n\t\t\t\t\t\t\t\t<input id=\"lineUnitBefore\"/>\n</p>\n\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t<label>outlineLevel:</label>\n\t\t\t\t\t\t\t\t\t<input id=\"outlineLevel\"/>\n</p>\n\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t<label>rightIndent:</label>\n\t\t\t\t\t\t\t\t\t\t<input id=\"rightIndent\"/>\n</p>\n\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t<label>spaceAfter:</label>\n\t\t\t\t\t\t\t\t\t\t\t<input id=\"spaceAfter\"/>\n</p>\n\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t<label>spaceBefore:</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input id=\"spaceBefore\"/>\n</p>\n\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label>widowControl:</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input id=\"widowControl\"/>\n</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<button id=\"changeParaFmt\" class=\"ms-Button\">\n  <span class=\"ms-Button-label\">Change ParagraphFormat</span>\n</button>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t<hr />\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Style Font</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>bold:</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input id=\"bold\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>color:</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input id=\"color\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>doubleStrikeThrough:</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input id=\"doubleStrikeThrough\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>highlightColor:</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input id=\"highlightColor\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>italic:</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input id=\"italic\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>name:</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input id=\"name\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>size:</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input id=\"size\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>subscript:</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input id=\"subscript\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>underline:</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input id=\"underline\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button id=\"changeFont\" class=\"ms-Button\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t  <span class=\"ms-Button-label\">Change Font</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<hr />\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Import Styles From Json</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button id=\"importStylesFromJson\" class=\"ms-Button\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t    <span class=\"ms-Button-label\">Import Styles</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>"
+  language: html
+style:
+  content: |-
+    section.samples {
+        margin-top: 20px;
+    }
+    section.samples .ms-Button, section.setup .ms-Button {
+        display: block;
+        margin-bottom: 5px;
+        margin-left: 20px;
+        min-width: 80px;
+    }
+  language: css
+libraries: |
+  https://appsforoffice.microsoft.com/lib/beta/hosted/office.js
+  @types/office-js-preview
+  office-ui-fabric-js@1.4.0/dist/css/fabric.min.css
+  office-ui-fabric-js@1.4.0/dist/css/fabric.components.min.css
+  core-js@2.4.1/client/core.min.js
+  @types/core-js
+  jquery@3.1.1
+  @types/jquery@3.3.1

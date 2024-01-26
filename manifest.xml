@@ -1,84 +1,204 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
-  <Id>2da42c62-cc4c-4be1-a88e-b645d1cc4a56</Id>
+  <!--This is a GUID generated randomly or semi-randomly based on contents and/or current time-->
+  <Id>f45e46a6-00ed-4ed7-8d3b-c02a595d98fa</Id>
+  <!--Self explanatory-->
   <Version>1.0.0.0</Version>
-  <ProviderName>Contoso</ProviderName>
+  <!--Company name, default language, template name and description, icons for AppSource and in the UX, and where to get help with the add-in-->
+  <ProviderName>Opertools</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="PPA Writers Manual Assistant"/>
-  <Description DefaultValue="A template to get started."/>
+  <DisplayName DefaultValue="Opertools Template"/>
+  <Description DefaultValue="A set of tools to help in creation and editing of procedures and policies with standard formatting."/>
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
-  <SupportUrl DefaultValue="https://www.contoso.com/help"/>
+  <SupportUrl DefaultValue="https://www.opertools.com/help"/>
+
+<!--List domains to be trusted by Office. Makes them available for API calls -->
   <AppDomains>
     <AppDomain>https://www.contoso.com</AppDomain>
   </AppDomains>
+
+  <!--"Document" for MS word. can have multiple entries, but also need cooresponding VersionOverrides host entries-->
   <Hosts>
     <Host Name="Document"/>
   </Hosts>
+
+  <!--SourceLocation is the only setting applicable to Word-->
   <DefaultSettings>
     <SourceLocation DefaultValue="https://localhost:3000/taskpane.html"/>
   </DefaultSettings>
+
+  <!--Stick with readwrite document, obviously-->
   <Permissions>ReadWriteDocument</Permissions>
+
+  <!--VersionOverrides is where new content is added these attributes are default. v1.0 is the current supported version.
+      see https://learn.microsoft.com/en-us/javascript/api/manifest/versionoverrides?view=common-js-preview-->
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <!--this is where you can add addins for multiple programs, one host entry for each-->
     <Hosts>
+      <!--This section is called when a "Document" is opened (MS Word)-->
       <Host xsi:type="Document">
+
+        <!--brings the specified file into the same runtime as the program. Setting lifetime="long" keeps the scripts running even when the -->
+        <Runtimes>
+          <Runtime resid="Taskpane.Url" lifetime="long" />                    <!--REQUIRED RESID ENTRY (URL)-->
+        </Runtimes>
+
+        <!--desktop, mobile, or all. only desktop is supported in Word-->
         <DesktopFormFactor>
+
+        <!--GetStarted is the callout/popup when the add-in is loaded-->
           <GetStarted>
-            <Title resid="GetStarted.Title"/>
-            <Description resid="GetStarted.Description"/>
-            <LearnMoreUrl resid="GetStarted.LearnMoreUrl"/>
+            <Title resid="GetStarted.Title"/>                                 <!--REQUIRED RESID ENTRY (short string)-->
+            <Description resid="GetStarted.Description"/>                     <!--REQUIRED RESID ENTRY (long string)-->
+            <LearnMoreUrl resid="GetStarted.LearnMoreUrl"/>                   <!--REQUIRED RESID ENTRY (URL)-->
           </GetStarted>
-          <FunctionFile resid="Commands.Url"/>
+
+          <!--FunctionFile specifies the source file-->
+          <FunctionFile resid="Taskpane.Url"/>                                <!--REQUIRED RESID ENTRY (URL)-->
+
+          <!--select what kind of extension - PCS for ribbon, contextmenu for right click-->
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
+          
+<!--************** BEGINNING OF OFFICE TAB *******************-->
+          <!--OfficeTab calls existing tabs-->          
             <OfficeTab id="TabHome">
-              <Group id="CommandsGroup">
-                <Label resid="CommandsGroup.Label"/>
+              <Group id="CommandsGroup"><!--Just a unique ID-->
+
+                <!--This resid is what is displayed-->  
+                <Label resid="CommandsOT-NumberingGroup.Label"/>
+
+                <!--The group requires an icon set, has to include 16, 32, and 80-->
                 <Icon>
-                  <bt:Image size="16" resid="Icon.16x16"/>
-                  <bt:Image size="32" resid="Icon.32x32"/>
-                  <bt:Image size="80" resid="Icon.80x80"/>
+                  <bt:Image size="16" resid="Taskpane.Icon.16"/>
+                  <bt:Image size="32" resid="Taskpane.Icon.32"/>
+                  <bt:Image size="80" resid="Taskpane.Icon.80"/>
                 </Icon>
+
+                <!--Button, Menu, or MobileButton (mail only)-->
                 <Control xsi:type="Button" id="TaskpaneButton">
                   <Label resid="TaskpaneButton.Label"/>
-                  <Supertip>
-                    <Title resid="TaskpaneButton.Label"/>
-                    <Description resid="TaskpaneButton.Tooltip"/>
+
+                  <Supertip><!--Supertip only works on desktop-->
+                    <Title resid="TaskpaneButton.Label"/><!--Bolded title of the supertip-->
+                    <Description resid="TaskpaneButton.Tooltip"/><!--Regular text contents-->
                   </Supertip>
+
+                  <!--Controls require their own icons sets too-->
                   <Icon>
-                    <bt:Image size="16" resid="Icon.16x16"/>
-                    <bt:Image size="32" resid="Icon.32x32"/>
-                    <bt:Image size="80" resid="Icon.80x80"/>
+                    <bt:Image size="16" resid="Taskpane.Icon.16"/>
+                    <bt:Image size="32" resid="Taskpane.Icon.32"/>
+                    <bt:Image size="80" resid="Taskpane.Icon.80"/>
                   </Icon>
+                  <!--Execute function or show taskpane-->
                   <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>ButtonId1</TaskpaneId>
-                    <SourceLocation resid="Taskpane.Url"/>
+                    <TaskpaneId>ButtonId1</TaskpaneId><!--specifies ID of taskpane container (optional). use one or multiple-->
+                    <SourceLocation resid="Taskpane.Url"/><!--links the URL of the HTML file to load-->
                   </Action>
+
                 </Control>
               </Group>
             </OfficeTab>
+<!--************** END OF OFFICE TAB, START OF CUSTOM TAB *******************-->
+
+            <!--CustomTab-->
+            <CustomTab id="OT-CustomStyles">
+              <Group id="GroupUniqueID">
+              <Label resid="OT-NumberingGroup.Label"/>
+              <Icon>
+                <bt:Image size="16" resid="OT-NumberingGroup.Icon.16"/>
+                <bt:Image size="32" resid="OT-NumberingGroup.Icon.32"/>
+                <bt:Image size="80" resid="OT-NumberingGroup.Icon.80"/>
+              </Icon>
+                <Control xsi:type="Button" id="SectionHdrButton">
+                  <Label resid="SectionHdrButton.Label"/>
+
+                  <!--
+                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
+                    Change all occurrences of each resid to something that makes sense for your project    
+                  -->
+                  <Supertip>
+                    <Title resid="SectionHdrButton.Supertip.Label"/>
+                    <Description resid="SectionHdrButton.Supertip.Desc"/>
+                  </Supertip>
+
+                  <!--
+                    Controls require their own icons sets too 
+                    Change all occurrences of each resid to something that makes sense for your project
+                    Change the resource references for each icon to the location you store them
+                  -->
+                  <Icon>
+                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
+                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
+                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+                  </Icon>
+
+                  <!--
+                    Actions come in two flavors - ExecuteFunction or ShowTaskpane
+                    Keep one of the following <Action> elements and delete the other
+                    ShowTaskPane open
+                  -->
+
+                  <!--OR THIS ONE-->
+                  <Action xsi:type="ExecuteFunction">
+                    <!--This function must be available to the <FunctionFile> url listed in the manifest-->
+                    <FunctionName>setStyleSectionHeader</FunctionName>
+                  </Action>
+
+                  <!--Now that you've got all that done, move down to the resources section-->
+                </Control>
+              <!--TODO Add Menus or Controls here-->
+
+              </Group>
+
+              <Label resid="OT-CustomStylesTab.Label" />
+            </CustomTab>
+
+<!--************** END OF CUSTOM TAB *******************-->
+
           </ExtensionPoint>
         </DesktopFormFactor>
       </Host>
     </Hosts>
+
+    <!--This is the list of resources. They are called by a string ID. Each resource can also have an Override child with a different resource for non-default locales-->
     <Resources>
+      <!--When an Image is called, its ID is looked for here-->
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+        <bt:Image id="Taskpane.Icon.16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+        <bt:Image id="Taskpane.Icon.32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+        <bt:Image id="Taskpane.Icon.80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+        <bt:Image id="OT-NumberingGroup.Icon.16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+        <bt:Image id="OT-NumberingGroup.Icon.32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+        <bt:Image id="OT-NumberingGroup.Icon.80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+        <bt:Image id="SectionHdrButton.Icon.16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+        <bt:Image id="SectionHdrButton.Icon.32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+        <bt:Image id="SectionHdrButton.Icon.80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
       </bt:Images>
+      
+      <!--When a URL is called, its ID is looked for here-->
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
-        <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html"/>
         <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
+        <bt:Url id="ScriptSource.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
       </bt:Urls>
+
+      <!--125 character max. Used for "Label" and "Title" attributes-->
       <bt:ShortStrings>
         <bt:String id="GetStarted.Title" DefaultValue="Get started with your sample add-in!"/>
-        <bt:String id="CommandsGroup.Label" DefaultValue="Commands Group"/>
+        <bt:String id="CommandsOT-NumberingGroup.Label" DefaultValue="Commands Group"/>
         <bt:String id="TaskpaneButton.Label" DefaultValue="Show Taskpane"/>
+        <bt:String id="OT-CustomStylesTab.Label" DefaultValue="Custom111 Styles" />
+        <bt:String id="OT-NumberingGroup.Label" DefaultValue="Numbering"/>
+        <bt:String id="SectionHdrButton.Label" DefaultValue="Section Header"/>
+        <bt:String id="SectionHdrButton.Supertip.Label" DefaultValue="Supertip label"/> 
       </bt:ShortStrings>
+
+      <!--250 characters max. Used for "Description" attributes-->
       <bt:LongStrings>
         <bt:String id="GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Show Taskpane' button to get started."/>
         <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane"/>
+        <bt:String id="SectionHdrButton.Supertip.Desc" DefaultValue="This is a description of this control."/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>

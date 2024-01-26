@@ -1,0 +1,108 @@
+<!-- This contains two templates: one for adding a group to an existing office tab and one for adding a new customized tab-->
+
+<!-- 
+  ADDING CUSTOM TABS
+
+  https://learn.microsoft.com/en-us/javascript/api/manifest/customtab?view=common-js
+
+  Add the <CustomTab> element snippet into your code under <Host xsi:type="HOSTTYPE"> where HOSTTYPE is whatever host type you're writing for.
+  CustomTab elements must come AFTER OfficeTab elements
+
+  Add the <bt:String> element into the resources under <bt:ShortStrings>
+
+  Change "TODO Add Tab Name Here" to an unique ID of your choosing, up to 125 characters
+
+  Change all occurrences of "CustomTab.Label" to your desired resource id name. I recommend using something in the format of TABNAME.LABEL, where TABNAME is the name of your tab. Any resid value you change must be 32 characters long or less.
+
+  Change the DefaultValue of "CustomTab Label" to a name of your choice up to 125 characters.
+-->
+
+<!--CustomTab-->
+<CustomTab id="TODO Add Tab Name Here">
+  <!--TODO Add one or more groups in here-->
+  <Label resid="CustomTab.Label" />
+</CustomTab>
+
+<bt:String id="CustomTab.Label" DefaultValue="Tab Label" />
+
+<!--*************************************************************-->
+
+<!-- 
+  EXTENDING EXISTING OFFICE TABS
+
+  https://learn.microsoft.com/en-us/javascript/api/manifest/officetab?view=common-js
+
+  Add the <OfficeTab> element snippet into your code under <Host xsi:type="HOSTTYPE"> where HOSTTYPE is whatever host type you're writing for.
+  OfficeTab elements must come BEFORE CustomTab elements
+
+-->
+
+<!--OfficeTab-->
+<OfficeTab id="TODO Add Tab Name Here">
+  <!--TODO Add one or more groups in here-->
+</OfficeTab>
+
+<!--
+The following values are valid id'ss per https://learn.microsoft.com/en-us/javascript/api/manifest/officetab?view=common-js-preview
+
+Word:
+  TabHome
+  TabInsert
+  TabWordDesign
+  TabPageLayoutWord
+  TabReferences
+  TabMailings
+  TabReviewWord
+  TabView
+  TabDeveloper
+  TabAddIns
+  TabBlogPost
+  TabBlogInsert
+  TabPrintPreview
+  TabOutlining
+  TabConflicts
+  TabBackgroundRemoval
+  TabBroadcastPresentation
+
+Excel:
+  TabHome
+  TabInsert
+  TabPageLayoutExcel
+  TabFormulas
+  TabData
+  TabReview
+  TabView
+  TabDeveloper
+  TabAddIns
+  TabPrintPreview
+  TabBackgroundRemoval
+
+PowerPoint:
+  TabHome
+  TabInsert
+  TabDesign
+  TabTransitions
+  TabAnimations
+  TabSlideShow
+  TabReview
+  TabView
+  TabDeveloper
+  TabAddIns
+  TabPrintPreview
+  TabMerge
+  TabGrayscale
+  TabBlackAndWhite
+  TabBroadcastPresentation
+  TabSlideMaster
+  TabHandoutMaster
+  TabNotesMaster
+  TabBackgroundRemoval
+  TabSlideMasterHome
+
+OneNote:
+  TabHome
+  TabInsert
+  TabView
+  TabDeveloper
+  TabAddIns
+-->

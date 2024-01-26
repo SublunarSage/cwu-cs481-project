@@ -1,0 +1,50 @@
+<!--
+  Copy the <Group> element into the tab of your choosing
+ 
+  Follow the instructions in the comments from top to bottom  
+
+  Any resid value you change must be 32 characters long or less
+-->
+
+
+<!--Create a unique ID for thr group. It can't match any other group in the manifest-->
+<Group id="GroupUniqueID">
+
+  <!--Change the resource references for the label to whatever you want the group's displayed name to be -->  
+  <Label resid="CustomGroupName.Label"/>
+
+  <!--
+    The group requires an icon set and has to include at a minimum 16x16, 32x32, and 80x80 pixel icons. 
+    Change all occurrences of each resid to something that makes sense for your project
+    Change the resource references for each icon to the location you store them
+  -->
+  <Icon>
+    <bt:Image size="16" resid="Group.Icon.16"/>
+    <bt:Image size="32" resid="Group.Icon.32"/>
+    <bt:Image size="80" resid="Group.Icon.80"/>
+  </Icon>
+
+  <!--TODO Add Menus or Controls here-->
+
+</Group>
+
+<!--
+  Make sure you've changed the id attributes for all elements to something that makes sense for your project
+  Update the DefaultValue attributes for each resource
+  Copy the resources into their appropriate resource elements at the end of the manifest
+-->
+
+<Resources>
+
+  <bt:Images>
+    <bt:Image id="Group.Icon.16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+    <bt:Image id="Group.Icon.32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+    <bt:Image id="Group.Icon.80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+  </bt:Images>
+  
+  <!--125 character max. Used for "Label" and "Title" attributes-->
+  <bt:ShortStrings>
+    <bt:String id="CustomGroupName.Label" DefaultValue="Group Name"/> 
+  </bt:ShortStrings>
+
+</Resources>

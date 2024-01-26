@@ -1,0 +1,91 @@
+<!--
+  Copy the <Control> element into the group or menu of your choosing
+ 
+  Follow the instructions in the comments from top to bottom  
+
+  Any resid value you change must be 32 characters long or less
+-->
+
+<!--***************************************************-->
+
+<!--
+  xsi:type can be Button, Menu, or MobileButton (MobileButton is for Outlook only)
+  Create a unique ID for the control
+  Change all occurrences of the resid to something that makes sense for your project
+  Change the resource references for the label to whatever you want the button's displayed name to be
+-->
+<Control xsi:type="Button" id="SectionHdrButton">
+  <Label resid="SectionHdrButton.Label"/>
+
+  <!--
+    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
+    Change all occurrences of each resid to something that makes sense for your project    
+  -->
+  <Supertip>
+    <Title resid="SectionHdrButton.Supertip.Label"/>
+    <Description resid="SectionHdrButton.Supertip.Desc"/>
+  </Supertip>
+
+  <!--
+    Controls require their own icons sets too 
+    Change all occurrences of each resid to something that makes sense for your project
+    Change the resource references for each icon to the location you store them
+  -->
+  <Icon>
+    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
+    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
+    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+  </Icon>
+
+  <!--
+    Actions come in two flavors - ExecuteFunction or ShowTaskpane
+    Keep one of the following <Action> elements and delete the other
+    ShowTaskPane open
+  -->
+
+  <!--THIS ONE-->
+  <Action xsi:type="ShowTaskpane">
+    <!--
+      Enter a unique Id for the taskpane to open OR enter Office.AutoShowTaskpaneWithDocument to show the taskpane automatically
+      You can use multiple taskpanes, but only the primary taskpane can be in the shared runtime environment. I think.
+      Change all occurrences of the resid to something that makes sense for your project
+    -->
+    <TaskpaneId>TaskpaneContainerId</TaskpaneId>
+    <SourceLocation resid="ScriptSource.Url"/>
+  </Action>
+
+  <!--OR THIS ONE-->
+  <Action xsi:type="ExecuteFunction">
+    <!--This function must be available to the <FunctionFile> url listed in the manifest-->
+    <FunctionName>javascriptFunctionName</FunctionName>
+  </Action>
+
+  <!--Now that you've got all that done, move down to the resources section-->
+</Control>
+
+<!--
+  Make sure you've changed the id attributes for all elements to something that makes sense for your project
+  Update the DefaultValue attributes for each resource
+  Copy the resources into their appropriate resource elements at the end of the manifest
+-->
+<Resources>
+
+  <bt:Images>
+    <bt:Image id="SectionHdrButton.Icon.16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+    <bt:Image id="SectionHdrButton.Icon.32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+    <bt:Image id="SectionHdrButton.Icon.80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+  </bt:Images>
+  
+  <bt:Urls>
+    <bt:Url id="ScriptSource.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
+  </bt:Urls>
+
+  <bt:ShortStrings>
+    <bt:String id="SectionHdrButton.Label" DefaultValue="Control Button Label"/>
+    <bt:String id="SectionHdrButton.Supertip.Label" DefaultValue="Supertip label"/>   
+  </bt:ShortStrings>
+
+  <bt:LongStrings>
+    <bt:String id="SectionHdrButton.Supertip.Desc" DefaultValue="This is a description of this control."/>
+  </bt:LongStrings>
+</Resources>

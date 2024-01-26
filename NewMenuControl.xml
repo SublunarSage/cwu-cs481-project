@@ -1,0 +1,72 @@
+
+<!--
+  Copy the <Control> element into the group of your choosing
+ 
+  Follow the instructions in the comments from top to bottom  
+
+  Any resid value you change must be 32 characters long or less
+-->
+
+<!--***************************************************-->
+
+<!--
+  xsi:type can be Button, Menu, or MobileButton (MobileButton is for Outlook only)
+  Create a unique ID for the control
+  Change all occurrences of the resid to something that makes sense for your project
+  Change the resource references for the label to whatever you want the button's displayed name to be
+-->
+<Control xsi:type="Menu" id="Contoso.Menu">
+  <Label resid="CustomDropdown.Label" />
+
+  <Supertip>
+    <Title resid="ControlButton.Supertip.Label"/>
+    <Description resid="ControlButton.Supertip.Desc"/>
+  </Supertip>
+
+  <Icon>
+    <bt:Image size="16" resid="ControlButton.Icon.16"/>
+    <bt:Image size="32" resid="ControlButton.Icon.32"/>
+    <bt:Image size="80" resid="ControlButton.Icon.80"/>
+  </Icon>
+
+  <Items>
+    <Item id="CustomMenuId1">
+    <!--
+      This is where you put the contents of a button-type <Control>. 
+      DO NOT include the <Control> tags, they are effectively replaced by the <Item> tags.
+    -->
+    </Item>
+
+    <Item id="CustomMenuId2">
+    <!--
+      This is where you put the contents of a button-type <Control>. 
+      DO NOT include the <Control> tags, they are effectively replaced by the <Item> tags.
+    -->
+    </Item>
+
+        <!--And you can keep adding more menu items if you want-->
+  </Items>
+</Control>
+
+
+<Resources>
+
+  <bt:Images>
+    <bt:Image id="ControlButton.Icon.16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+    <bt:Image id="ControlButton.Icon.32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+    <bt:Image id="ControlButton.Icon.80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+  </bt:Images>
+  
+  <bt:Urls>
+    <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
+  </bt:Urls>
+
+  <bt:ShortStrings>
+    <bt:String id="CustomDropdown.Label" DefaultValue="Control Button Label"/>
+    <bt:String id="ControlButton.Supertip.Label" DefaultValue="Supertip label"/>   
+  </bt:ShortStrings>
+
+  <bt:LongStrings>
+    <bt:String id="ControlButton.Supertip.Desc" DefaultValue="This is a description of this control."/>
+  </bt:LongStrings>
+</Resources>

@@ -1,0 +1,40 @@
+<!--************** CONDENSED, ONLY FUNCTION CONTROLS********************-->
+
+<Control xsi:type="Button" id="StepLevel1">
+  <Label resid="StepLevel1.Label"/>
+  <Supertip>
+    <Title resid="StepLevel1.Supertip.Label"/>
+    <Description resid="StepLevel1.Supertip.Desc"/>
+  </Supertip>
+  <Icon>
+    <bt:Image size="16" resid="StepLevel1.Icon.16"/>
+    <bt:Image size="32" resid="StepLevel1.Icon.32"/>
+    <bt:Image size="80" resid="StepLevel1.Icon.80"/>
+  </Icon>
+  <Action xsi:type="ExecuteFunction">
+    <FunctionName>javascriptFunctionName</FunctionName>
+  </Action>
+</Control>
+
+<!-- Resources -->
+
+<Resources>
+  <bt:Images>
+    <bt:Image id="StepLevel1.Icon.16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+    <bt:Image id="StepLevel1.Icon.32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+    <bt:Image id="StepLevel1.Icon.80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+  </bt:Images>
+  
+  <bt:Urls>
+    <bt:Url id="ScriptSource.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
+  </bt:Urls>
+
+  <bt:ShortStrings>
+    <bt:String id="StepLevel1.Label" DefaultValue="Control Button Label"/>
+    <bt:String id="StepLevel1.Supertip.Label" DefaultValue="Supertip label"/>   
+  </bt:ShortStrings>
+
+  <bt:LongStrings>
+    <bt:String id="StepLevel1.Supertip.Desc" DefaultValue="This is a description of this control."/>
+  </bt:LongStrings>
+</Resources>

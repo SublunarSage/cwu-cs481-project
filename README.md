@@ -1,2 +1,2 @@
-# cwu-cs481-project
-Repository for a Microsoft word-addin.
+# Don't mind the mess. 
+# I'm not a developer.
