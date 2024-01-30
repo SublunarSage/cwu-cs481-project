@@ -9,8 +9,8 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Opertools Template"/>
   <Description DefaultValue="A set of tools to help in creation and editing of procedures and policies with standard formatting."/>
-  <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
+  <IconUrl DefaultValue="https://www.contoso.com/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://www.contoso.com/assets/icon-64.png"/>
   <SupportUrl DefaultValue="https://www.opertools.com/help"/>
 
 <!--List domains to be trusted by Office. Makes them available for API calls -->
@@ -25,7 +25,7 @@
 
   <!--SourceLocation is the only setting applicable to Word-->
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://localhost:3000/taskpane.html"/>
+    <SourceLocation DefaultValue="https://www.contoso.com/taskpane.html"/>
   </DefaultSettings>
 
   <!--Stick with readwrite document, obviously-->
@@ -147,43 +147,6 @@
 
                   <!--Now that you've got all that done, move down to the resources section-->
                 </Control>
-                <Control xsi:type="Button" id="SectionHdrButton2">
-                  <Label resid="SectionHdrButton2.Label"/>
-
-                  <!--
-                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
-                    Change all occurrences of each resid to something that makes sense for your project    
-                  -->
-                  <Supertip>
-                    <Title resid="SectionHdrButton.Supertip.Label"/>
-                    <Description resid="SectionHdrButton.Supertip.Desc"/>
-                  </Supertip>
-
-                  <!--
-                    Controls require their own icons sets too 
-                    Change all occurrences of each resid to something that makes sense for your project
-                    Change the resource references for each icon to the location you store them
-                  -->
-                  <Icon>
-                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
-                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
-                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
-                  </Icon>
-
-                  <!--
-                    Actions come in two flavors - ExecuteFunction or ShowTaskpane
-                    Keep one of the following <Action> elements and delete the other
-                    ShowTaskPane open
-                  -->
-
-                  <!--OR THIS ONE-->
-                  <Action xsi:type="ExecuteFunction">
-                    <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>setStyleSectionHeader</FunctionName>
-                  </Action>
-
-                  <!--Now that you've got all that done, move down to the resources section-->
-                </Control>
               <!--TODO Add Menus or Controls here-->
 
               </Group>
@@ -198,26 +161,33 @@
       </Host>
     </Hosts>
 
+    <Requirements>
+      <Sets DefaultMinVersion="1.1">
+        <Set Name="SharedRuntime" MinVersion="1.1"/>
+      </Sets>
+    </Requirements>
+    <DefaultSettings>
+
     <!--This is the list of resources. They are called by a string ID. Each resource can also have an Override child with a different resource for non-default locales-->
     <Resources>
       <!--When an Image is called, its ID is looked for here-->
       <bt:Images>
-        <bt:Image id="Taskpane.Icon.16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-        <bt:Image id="Taskpane.Icon.32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-        <bt:Image id="Taskpane.Icon.80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
-        <bt:Image id="OT-NumberingGroup.Icon.16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-        <bt:Image id="OT-NumberingGroup.Icon.32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-        <bt:Image id="OT-NumberingGroup.Icon.80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
-        <bt:Image id="SectionHdrButton.Icon.16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-        <bt:Image id="SectionHdrButton.Icon.32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-        <bt:Image id="SectionHdrButton.Icon.80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+        <bt:Image id="Taskpane.Icon.16" DefaultValue="https://www.contoso.com/assets/icon-16.png"/>
+        <bt:Image id="Taskpane.Icon.32" DefaultValue="https://www.contoso.com/assets/icon-32.png"/>
+        <bt:Image id="Taskpane.Icon.80" DefaultValue="https://www.contoso.com/assets/icon-80.png"/>
+        <bt:Image id="OT-NumberingGroup.Icon.16" DefaultValue="https://www.contoso.com/assets/icon-16.png"/>
+        <bt:Image id="OT-NumberingGroup.Icon.32" DefaultValue="https://www.contoso.com/assets/icon-32.png"/>
+        <bt:Image id="OT-NumberingGroup.Icon.80" DefaultValue="https://www.contoso.com/assets/icon-80.png"/>
+        <bt:Image id="SectionHdrButton.Icon.16" DefaultValue="https://www.contoso.com/assets/icon-16.png"/>
+        <bt:Image id="SectionHdrButton.Icon.32" DefaultValue="https://www.contoso.com/assets/icon-32.png"/>
+        <bt:Image id="SectionHdrButton.Icon.80" DefaultValue="https://www.contoso.com/assets/icon-80.png"/>
       </bt:Images>
       
       <!--When a URL is called, its ID is looked for here-->
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
-        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
-        <bt:Url id="ScriptSource.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://www.contoso.com/taskpane.html"/>
+        <bt:Url id="ScriptSource.Url" DefaultValue="https://www.contoso.com/taskpane.html"/>
       </bt:Urls>
 
       <!--125 character max. Used for "Label" and "Title" attributes-->
@@ -228,7 +198,6 @@
         <bt:String id="OT-CustomStylesTab.Label" DefaultValue="Custom111 Styles" />
         <bt:String id="OT-NumberingGroup.Label" DefaultValue="Numbering"/>
         <bt:String id="SectionHdrButton.Label" DefaultValue="Section Header"/>
-        <bt:String id="SectionHdrButton2.Label" DefaultValue="Another Section Header"/>
         <bt:String id="SectionHdrButton.Supertip.Label" DefaultValue="Supertip label"/> 
       </bt:ShortStrings>
 

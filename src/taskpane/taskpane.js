@@ -5,6 +5,8 @@
 
 /* global document, Office, Word */
 
+let _count = 0;
+
 Office.onReady((info) => {
   if (info.host === Office.HostType.Word) {
     // Assign event handlers and other initialization logic.
@@ -23,6 +25,8 @@ Office.onReady((info) => {
 
   }
 });
+
+
 
 async function setStyleSectionHeader(event) {
   await Word.run(async (context) => {
