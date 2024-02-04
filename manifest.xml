@@ -48,11 +48,6 @@
         <DesktopFormFactor>
 
         <!--GetStarted is the callout/popup when the add-in is loaded-->
-          <GetStarted>
-            <Title resid="GetStarted.Title"/>                                 <!--REQUIRED RESID ENTRY (short string)-->
-            <Description resid="GetStarted.Description"/>                     <!--REQUIRED RESID ENTRY (long string)-->
-            <LearnMoreUrl resid="GetStarted.LearnMoreUrl"/>                   <!--REQUIRED RESID ENTRY (URL)-->
-          </GetStarted>
 
           <!--FunctionFile specifies the source file-->
           <FunctionFile resid="Taskpane.Url"/>                                <!--REQUIRED RESID ENTRY (URL)-->
@@ -61,12 +56,17 @@
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
           
 <!--************** BEGINNING OF OFFICE TAB *******************-->
-          <!--OfficeTab calls existing tabs-->          
-            <OfficeTab id="TabHome">
-              <Group id="CommandsGroup"><!--Just a unique ID-->
+<!--************** END OF OFFICE TAB, START OF CUSTOM TAB *******************-->
+
+            <!--CustomTab-->
+            <CustomTab id="OT-CustomTab">
+              
+              <!--TaskPane Group-->
+
+              <Group id="TaskpaneGroup"><!--Just a unique ID-->
 
                 <!--This resid is what is displayed-->  
-                <Label resid="CommandsOT-NumberingGroup.Label"/>
+                <Label resid="OT-TaskPaneGroup.Label"/>
 
                 <!--The group requires an icon set, has to include 16, 32, and 80-->
                 <Icon>
@@ -98,20 +98,18 @@
 
                 </Control>
               </Group>
-            </OfficeTab>
-<!--************** END OF OFFICE TAB, START OF CUSTOM TAB *******************-->
 
-            <!--CustomTab-->
-            <CustomTab id="OT-CustomStyles">
-              <Group id="GroupUniqueID">
-              <Label resid="OT-NumberingGroup.Label"/>
+              <!--Templates Group-->
+
+              <Group id="TemplatesGroup">
+              <Label resid="OT-TemplatesGroup.Label"/>
               <Icon>
                 <bt:Image size="16" resid="OT-NumberingGroup.Icon.16"/>
                 <bt:Image size="32" resid="OT-NumberingGroup.Icon.32"/>
                 <bt:Image size="80" resid="OT-NumberingGroup.Icon.80"/>
               </Icon>
                 <Control xsi:type="Button" id="SectionHdrButton">
-                  <Label resid="SectionHdrButton.Label"/>
+                  <Label resid="Option1.Label"/>
 
                   <!--
                     Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
@@ -147,8 +145,9 @@
 
                   <!--Now that you've got all that done, move down to the resources section-->
                 </Control>
-                <Control xsi:type="Button" id="SectionHdrButton2">
-                  <Label resid="SectionHdrButton2.Label"/>
+
+                <Control xsi:type="Button" id="SectionHdrButton-2">
+                  <Label resid="Option2.Label"/>
 
                   <!--
                     Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
@@ -188,7 +187,383 @@
 
               </Group>
 
-              <Label resid="OT-CustomStylesTab.Label" />
+              <!--Formatting Group-->
+
+              <Group id="FormattingGroup">
+              <Label resid="OT-FormattingGroup.Label"/>
+              <Icon>
+                <bt:Image size="16" resid="OT-NumberingGroup.Icon.16"/>
+                <bt:Image size="32" resid="OT-NumberingGroup.Icon.32"/>
+                <bt:Image size="80" resid="OT-NumberingGroup.Icon.80"/>
+              </Icon>
+                <Control xsi:type="Button" id="SectionHdrButton2">
+                  <Label resid="SectionHdrButton.Label"/>
+
+                  <!--
+                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
+                    Change all occurrences of each resid to something that makes sense for your project    
+                  -->
+                  <Supertip>
+                    <Title resid="SectionHdrButton.Supertip.Label"/>
+                    <Description resid="SectionHdrButton.Supertip.Desc"/>
+                  </Supertip>
+
+                  <!--
+                    Controls require their own icons sets too 
+                    Change all occurrences of each resid to something that makes sense for your project
+                    Change the resource references for each icon to the location you store them
+                  -->
+                  <Icon>
+                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
+                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
+                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+                  </Icon>
+
+                  <!--
+                    Actions come in two flavors - ExecuteFunction or ShowTaskpane
+                    Keep one of the following <Action> elements and delete the other
+                    ShowTaskPane open
+                  -->
+
+                  <!--OR THIS ONE-->
+                  <Action xsi:type="ExecuteFunction">
+                    <!--This function must be available to the <FunctionFile> url listed in the manifest-->
+                    <FunctionName>setStyleSectionHeader</FunctionName>
+                  </Action>
+
+                  <!--Now that you've got all that done, move down to the resources section-->
+                </Control>
+              <!--TODO Add Menus or Controls here-->
+
+              </Group>
+
+              <!--Attachments Group-->
+
+              <Group id="AttachmentsGroup">
+              <Label resid="OT-AttachmentsGroup.Label"/>
+              <Icon>
+                <bt:Image size="16" resid="OT-NumberingGroup.Icon.16"/>
+                <bt:Image size="32" resid="OT-NumberingGroup.Icon.32"/>
+                <bt:Image size="80" resid="OT-NumberingGroup.Icon.80"/>
+              </Icon>
+                <Control xsi:type="Button" id="SectionHdrButton3">
+                  <Label resid="SectionHdrButton.Label"/>
+
+                  <!--
+                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
+                    Change all occurrences of each resid to something that makes sense for your project    
+                  -->
+                  <Supertip>
+                    <Title resid="SectionHdrButton.Supertip.Label"/>
+                    <Description resid="SectionHdrButton.Supertip.Desc"/>
+                  </Supertip>
+
+                  <!--
+                    Controls require their own icons sets too 
+                    Change all occurrences of each resid to something that makes sense for your project
+                    Change the resource references for each icon to the location you store them
+                  -->
+                  <Icon>
+                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
+                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
+                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+                  </Icon>
+
+                  <!--
+                    Actions come in two flavors - ExecuteFunction or ShowTaskpane
+                    Keep one of the following <Action> elements and delete the other
+                    ShowTaskPane open
+                  -->
+
+                  <!--OR THIS ONE-->
+                  <Action xsi:type="ExecuteFunction">
+                    <!--This function must be available to the <FunctionFile> url listed in the manifest-->
+                    <FunctionName>setStyleSectionHeader</FunctionName>
+                  </Action>
+
+                  <!--Now that you've got all that done, move down to the resources section-->
+                </Control>
+              <!--TODO Add Menus or Controls here-->
+
+              </Group>
+
+              <!--Step Numbering Group-->
+
+              <Group id="StepNumberGroup">
+              <Label resid="OT-StepNumberGroup.Label"/>
+              <Icon>
+                <bt:Image size="16" resid="OT-NumberingGroup.Icon.16"/>
+                <bt:Image size="32" resid="OT-NumberingGroup.Icon.32"/>
+                <bt:Image size="80" resid="OT-NumberingGroup.Icon.80"/>
+              </Icon>
+                <Control xsi:type="Button" id="SectionHdrButton4">
+                  <Label resid="SectionHdrButton.Label"/>
+
+                  <!--
+                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
+                    Change all occurrences of each resid to something that makes sense for your project    
+                  -->
+                  <Supertip>
+                    <Title resid="SectionHdrButton.Supertip.Label"/>
+                    <Description resid="SectionHdrButton.Supertip.Desc"/>
+                  </Supertip>
+
+                  <!--
+                    Controls require their own icons sets too 
+                    Change all occurrences of each resid to something that makes sense for your project
+                    Change the resource references for each icon to the location you store them
+                  -->
+                  <Icon>
+                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
+                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
+                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+                  </Icon>
+
+                  <!--
+                    Actions come in two flavors - ExecuteFunction or ShowTaskpane
+                    Keep one of the following <Action> elements and delete the other
+                    ShowTaskPane open
+                  -->
+
+                  <!--OR THIS ONE-->
+                  <Action xsi:type="ExecuteFunction">
+                    <!--This function must be available to the <FunctionFile> url listed in the manifest-->
+                    <FunctionName>setStyleSectionHeader</FunctionName>
+                  </Action>
+
+                  <!--Now that you've got all that done, move down to the resources section-->
+                </Control>
+              <!--TODO Add Menus or Controls here-->
+
+              </Group>
+
+              <!--Bullet List Group-->
+
+              <Group id="BulletGroup">
+              <Label resid="OT-BulletGroup.Label"/>
+              <Icon>
+                <bt:Image size="16" resid="OT-NumberingGroup.Icon.16"/>
+                <bt:Image size="32" resid="OT-NumberingGroup.Icon.32"/>
+                <bt:Image size="80" resid="OT-NumberingGroup.Icon.80"/>
+              </Icon>
+                <Control xsi:type="Button" id="SectionHdrButton5">
+                  <Label resid="SectionHdrButton.Label"/>
+
+                  <!--
+                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
+                    Change all occurrences of each resid to something that makes sense for your project    
+                  -->
+                  <Supertip>
+                    <Title resid="SectionHdrButton.Supertip.Label"/>
+                    <Description resid="SectionHdrButton.Supertip.Desc"/>
+                  </Supertip>
+
+                  <!--
+                    Controls require their own icons sets too 
+                    Change all occurrences of each resid to something that makes sense for your project
+                    Change the resource references for each icon to the location you store them
+                  -->
+                  <Icon>
+                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
+                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
+                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+                  </Icon>
+
+                  <!--
+                    Actions come in two flavors - ExecuteFunction or ShowTaskpane
+                    Keep one of the following <Action> elements and delete the other
+                    ShowTaskPane open
+                  -->
+
+                  <!--OR THIS ONE-->
+                  <Action xsi:type="ExecuteFunction">
+                    <!--This function must be available to the <FunctionFile> url listed in the manifest-->
+                    <FunctionName>setStyleSectionHeader</FunctionName>
+                  </Action>
+
+                  <!--Now that you've got all that done, move down to the resources section-->
+                </Control>
+              <!--TODO Add Menus or Controls here-->
+
+              </Group>
+
+              <!--Plain Text Group-->
+
+              <Group id="PlainTextGroup">
+              <Label resid="OT-PlainTextGroup.Label"/>
+              <Icon>
+                <bt:Image size="16" resid="OT-NumberingGroup.Icon.16"/>
+                <bt:Image size="32" resid="OT-NumberingGroup.Icon.32"/>
+                <bt:Image size="80" resid="OT-NumberingGroup.Icon.80"/>
+              </Icon>
+                <Control xsi:type="Button" id="SectionHdrButton6">
+                  <Label resid="SectionHdrButton.Label"/>
+
+                  <!--
+                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
+                    Change all occurrences of each resid to something that makes sense for your project    
+                  -->
+                  <Supertip>
+                    <Title resid="SectionHdrButton.Supertip.Label"/>
+                    <Description resid="SectionHdrButton.Supertip.Desc"/>
+                  </Supertip>
+
+                  <!--
+                    Controls require their own icons sets too 
+                    Change all occurrences of each resid to something that makes sense for your project
+                    Change the resource references for each icon to the location you store them
+                  -->
+                  <Icon>
+                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
+                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
+                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+                  </Icon>
+
+                  <!--
+                    Actions come in two flavors - ExecuteFunction or ShowTaskpane
+                    Keep one of the following <Action> elements and delete the other
+                    ShowTaskPane open
+                  -->
+
+                  <!--OR THIS ONE-->
+                  <Action xsi:type="ExecuteFunction">
+                    <!--This function must be available to the <FunctionFile> url listed in the manifest-->
+                    <FunctionName>setStyleSectionHeader</FunctionName>
+                  </Action>
+
+                  <!--Now that you've got all that done, move down to the resources section-->
+                </Control>
+              <!--TODO Add Menus or Controls here-->
+
+              </Group>
+
+              <!--Note, Caution, Warning Group-->
+
+              <Group id="NCWGroup">
+              <Label resid="OT-NCWGroup.Label"/>
+              <Icon>
+                <bt:Image size="16" resid="OT-NumberingGroup.Icon.16"/>
+                <bt:Image size="32" resid="OT-NumberingGroup.Icon.32"/>
+                <bt:Image size="80" resid="OT-NumberingGroup.Icon.80"/>
+              </Icon>
+                <Control xsi:type="Button" id="SectionHdrButton7">
+                  <Label resid="Note.Label"/>
+
+                  <!--
+                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
+                    Change all occurrences of each resid to something that makes sense for your project    
+                  -->
+                  <Supertip>
+                    <Title resid="SectionHdrButton.Supertip.Label"/>
+                    <Description resid="SectionHdrButton.Supertip.Desc"/>
+                  </Supertip>
+
+                  <!--
+                    Controls require their own icons sets too 
+                    Change all occurrences of each resid to something that makes sense for your project
+                    Change the resource references for each icon to the location you store them
+                  -->
+                  <Icon>
+                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
+                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
+                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+                  </Icon>
+
+                  <!--
+                    Actions come in two flavors - ExecuteFunction or ShowTaskpane
+                    Keep one of the following <Action> elements and delete the other
+                    ShowTaskPane open
+                  -->
+
+                  <!--OR THIS ONE-->
+                  <Action xsi:type="ExecuteFunction">
+                    <!--This function must be available to the <FunctionFile> url listed in the manifest-->
+                    <FunctionName>setStyleSectionHeader</FunctionName>
+                  </Action>
+
+                  <!--Now that you've got all that done, move down to the resources section-->
+                </Control>
+
+                <Control xsi:type="Button" id="SectionHdrButton-3">
+                  <Label resid="Caution.Label"/>
+
+                  <!--
+                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
+                    Change all occurrences of each resid to something that makes sense for your project    
+                  -->
+                  <Supertip>
+                    <Title resid="SectionHdrButton.Supertip.Label"/>
+                    <Description resid="SectionHdrButton.Supertip.Desc"/>
+                  </Supertip>
+
+                  <!--
+                    Controls require their own icons sets too 
+                    Change all occurrences of each resid to something that makes sense for your project
+                    Change the resource references for each icon to the location you store them
+                  -->
+                  <Icon>
+                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
+                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
+                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+                  </Icon>
+
+                  <!--
+                    Actions come in two flavors - ExecuteFunction or ShowTaskpane
+                    Keep one of the following <Action> elements and delete the other
+                    ShowTaskPane open
+                  -->
+
+                  <!--OR THIS ONE-->
+                  <Action xsi:type="ExecuteFunction">
+                    <!--This function must be available to the <FunctionFile> url listed in the manifest-->
+                    <FunctionName>setStyleSectionHeader</FunctionName>
+                  </Action>
+
+                  <!--Now that you've got all that done, move down to the resources section-->
+                </Control>
+
+                <Control xsi:type="Button" id="SectionHdrButton-4">
+                  <Label resid="Warning.Label"/>
+
+                  <!--
+                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
+                    Change all occurrences of each resid to something that makes sense for your project    
+                  -->
+                  <Supertip>
+                    <Title resid="SectionHdrButton.Supertip.Label"/>
+                    <Description resid="SectionHdrButton.Supertip.Desc"/>
+                  </Supertip>
+
+                  <!--
+                    Controls require their own icons sets too 
+                    Change all occurrences of each resid to something that makes sense for your project
+                    Change the resource references for each icon to the location you store them
+                  -->
+                  <Icon>
+                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
+                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
+                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+                  </Icon>
+
+                  <!--
+                    Actions come in two flavors - ExecuteFunction or ShowTaskpane
+                    Keep one of the following <Action> elements and delete the other
+                    ShowTaskPane open
+                  -->
+
+                  <!--OR THIS ONE-->
+                  <Action xsi:type="ExecuteFunction">
+                    <!--This function must be available to the <FunctionFile> url listed in the manifest-->
+                    <FunctionName>setStyleSectionHeader</FunctionName>
+                  </Action>
+
+                  <!--Now that you've got all that done, move down to the resources section-->
+                </Control>
+              <!--TODO Add Menus or Controls here-->
+
+              </Group>
+
+              <Label resid="OT-CustomTab.Label" />
             </CustomTab>
 
 <!--************** END OF CUSTOM TAB *******************-->
@@ -215,26 +590,40 @@
       
       <!--When a URL is called, its ID is looked for here-->
       <bt:Urls>
-        <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
         <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
         <bt:Url id="ScriptSource.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
       </bt:Urls>
 
       <!--125 character max. Used for "Label" and "Title" attributes-->
       <bt:ShortStrings>
-        <bt:String id="GetStarted.Title" DefaultValue="Get started with your sample add-in!"/>
-        <bt:String id="CommandsOT-NumberingGroup.Label" DefaultValue="Commands Group"/>
+        <bt:String id="OT-TaskPaneGroup.Label" DefaultValue="Taskpane"/>
         <bt:String id="TaskpaneButton.Label" DefaultValue="Show Taskpane"/>
-        <bt:String id="OT-CustomStylesTab.Label" DefaultValue="Custom111 Styles" />
-        <bt:String id="OT-NumberingGroup.Label" DefaultValue="Numbering"/>
-        <bt:String id="SectionHdrButton.Label" DefaultValue="Section Header"/>
-        <bt:String id="SectionHdrButton2.Label" DefaultValue="Another Section Header"/>
+        <bt:String id="OT-CustomTab.Label" DefaultValue="Opertools" />
+        <bt:String id="SectionHdrButton.Label" DefaultValue="TBD"/>
         <bt:String id="SectionHdrButton.Supertip.Label" DefaultValue="Supertip label"/> 
+
+        <bt:String id="OT-TemplatesGroup.Label" DefaultValue="Templates"/>
+        <bt:String id="Option1.Label" DefaultValue="Option 1"/>
+        <bt:String id="Option2.Label" DefaultValue="Option 2"/>
+        
+        <bt:String id="OT-FormattingGroup.Label" DefaultValue="Formatting"/>
+
+        <bt:String id="OT-AttachmentsGroup.Label" DefaultValue="Attachments"/>
+
+        <bt:String id="OT-StepNumberGroup.Label" DefaultValue="Step Numbering"/>
+
+        <bt:String id="OT-BulletGroup.Label" DefaultValue="Bulleting"/>
+
+        <bt:String id="OT-PlainTextGroup.Label" DefaultValue="Plain Text"/>
+
+        <bt:String id="OT-NCWGroup.Label" DefaultValue="Note, Caution, Warning"/>
+        <bt:String id="Note.Label" DefaultValue="Note"/>
+        <bt:String id="Caution.Label" DefaultValue="Caution"/>
+        <bt:String id="Warning.Label" DefaultValue="Warning"/>
       </bt:ShortStrings>
 
       <!--250 characters max. Used for "Description" attributes-->
       <bt:LongStrings>
-        <bt:String id="GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Show Taskpane' button to get started."/>
         <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane"/>
         <bt:String id="SectionHdrButton.Supertip.Desc" DefaultValue="This is a description of this control."/>
       </bt:LongStrings>
