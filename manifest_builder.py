@@ -1,13 +1,5 @@
-# To use:
-#     pip install required packages (lxml and InquirerPy)
-#     back up your existing manifest
-#     run the script and follow the prompts
-#     if you have questions/issues, email me
-# 
-# If it works but it's ugly, then it still works.
-# If it doesn't work... I'll work on it.
-# -John
-# p.s. remember to validate your manifests using npm run validate
+# Values cannot be blank
+# Limited to 1 CustomTab
 
 
 from lxml.builder import ElementMaker
@@ -52,14 +44,24 @@ is_label = lambda element: element.tag =="Label"
 is_officetab = lambda element: element.tag =="OfficeTab"
 is_customtab = lambda element: element.tag =="CustomTab"
 is_controlgroup = lambda element: element.tag == "Group"
-is_control = lambda element: bool((element.tag == "Menu") or (element.tag == "Button"))
+is_control = lambda element: (element.tag == "Control")
+get_resid = lambda element: element.find("Label").get("resid")
+get_label_from_resid = lambda resid: officeapp_structure.xpath(f"//*[@id='{resid}']")[0].get("DefaultValue")
+
+
 # CustomTabStructure, CustomGroupStructure, etc., remain unchanged
 sharedruntimestatus = ""
+
+tab_dict={}
+group_dict={}
+control_dict={}
+menuitem_dict={}
+
 
 
 # OfficeApp children
 officeapp_structure = None
-officeapp_id = generate_guid()
+officeapp_id = "497A2D5E-9E1E-4397-BE5E-C62B75E95682"
 officeapp_version = "1.0.0.0"
 officeapp_providername = "Opertools"
 officeapp_defaultlocale = "en-US"
@@ -203,7 +205,7 @@ def MainMenu():
     while result !="exit":
         result = DisplayMainMenu()
         if result == "quit":
-            return
+            quit()
 
 def DisplayMainMenu():
     global sharedruntimestatus
@@ -212,7 +214,7 @@ def DisplayMainMenu():
         menu=[
             "Edit basic manifest information",
             f"Set shared runtime {sharedruntimestatus}",
-            # "Edit Office Tabs",
+            "Edit Office Tabs",
             "Edit Custom Tabs",
             "Write manifest.xml",
             "Quit"
@@ -352,28 +354,35 @@ def EditBasicInfoMenuMore(result):
             return "exit"
 
 def edit_tabs_menu(tab_type):
-
     result = None 
-
+    # shortstrings_element = officeapp_structure.xpath("//*[local-name()='Strings']")
+    # print (shortstrings_element)
+    # input()
     while result != "exit":
+        generated_menu = []
         if tab_type == "custom":
             tab_element_list = officeapp_structure.xpath("VersionOverrides/Hosts/Host/DesktopFormFactor/ExtensionPoint/CustomTab")
+            for tab_element in tab_element_list:
+                tab_label_resid = get_resid(tab_element)
+                tab_label = get_label_from_resid(tab_label_resid)
+                generated_menu.append(f"Edit tab {tab_label}")
         elif tab_type == "office":
             tab_element_list = officeapp_structure.xpath("VersionOverrides/Hosts/Host/DesktopFormFactor/ExtensionPoint/OfficeTab")
+            for tab_element in tab_element_list:
+                tab_label_resid = get_resid(tab_element)
+                tab_label = get_label_from_resid(tab_label_resid)
+                generated_menu.append(f"Edit tab {tab_label}")
 
-        generated_menu = []
-
-        for element in tab_element_list:
-            generated_menu.append(f"Modify {element.tag} {element.get('id')}")
-        generated_menu.append("Create new tab")
+        generated_menu.append("Add a new CustomTab")
         generated_menu.append("Exit to main menu")
+
         os.system("cls")
         menuselection = inquirer.rawlist(
             message="Editing Custom Tabs:",
             choices=generated_menu,
             default=1,
             multiselect=False,
-            validate=lambda result: len(result) > 1,
+            validate=lambda result: len(result) > 0,
         ).execute()
         index = generated_menu.index(menuselection)
         if index < (len(generated_menu)-2): # Edit tabs
@@ -382,7 +391,13 @@ def edit_tabs_menu(tab_type):
             if tab_type == "office":
                 input ("I'm still working on that.")
             elif tab_type == "custom":
-                create_custom_tab()
+                if len(generated_menu) <3:
+                    create_custom_tab()
+                else:
+                    os.system("cls")
+                    print("I learned on 2/8/23 that add-ins are limited to 1 custom tab!\n See https://learn.microsoft.com/en-us/javascript/api/manifest/customtab?view=common-js-preview")
+                    input("Press Enter to continue")
+
         elif menuselection == generated_menu[-1]: # Exit
             result = "exit"
 
@@ -390,29 +405,38 @@ def edit_customtab_menu(tab_element):
 
     result = None 
     while result != "exit":
+        group_dict = {}
         menu = []
-        for element in filter(is_controlgroup,tab_element):
-            menu.append(f"Edit Group {element.get('id')}")
+        for element in filter(is_controlgroup, tab_element):
+            group_label_resid = get_resid(element)
+            group_label = get_label_from_resid(group_label_resid)
+            group_dict.update({group_label: group_label_resid})
+
+            menu.append(f"Edit group {group_label}")
         menu.append("Change tab name")
-        menu.append("Create new control group")
-        menu.append("Exit to main menu")
+        menu.append("Add a new group to this tab")
+        menu.append("Return to previous menu")
 
         os.system("cls")
-
         menuselection = inquirer.rawlist(
-            message=f"Editing tab {tab_element.get('id')}",
+            message=f"Editing groups in tab {get_label_from_resid(get_resid(tab_element))}",
             choices=menu,
             default=1,
             multiselect=False,
-            validate=lambda result: len(result) > 1,
+            validate=lambda result: len(result) > 0,
         ).execute()
         index = menu.index(menuselection)
         if index < (len(menu)-3): # Edit a group
-            edit_controlgroup_menu(tab_element[index])
+            edit_group_menu(tab_element[index])
         elif menuselection == menu[-3]: # Change Tab Name
             edit_element_id(tab_element)
         elif menuselection == menu[-2]: # Create new control group
-            create_custom_group(tab_element)
+            if len(menu)<9:
+                create_custom_group(tab_element)
+            else:
+                os.system("cls")
+                print("Any further items will have to be added manually.\nThe library used for the menus has a limited length.")
+                input("Press Enter to continue")
         elif menuselection == menu[-1]: # Exit
             result = "exit"
 
@@ -421,15 +445,16 @@ def create_custom_tab():
     extensionpoint_element = officeapp_structure.xpath("//VersionOverrides/Hosts/Host/DesktopFormFactor/ExtensionPoint")[0]
     tab_id = generate_resid()
     tab_label = input ("What do you want the new tab to be called?\n")
+    label_resid = generate_resid()
     tab_element = E.CustomTab(
-        E.Label(resid=tab_id),
-        id = tab_label,
+        E.Label(resid=label_resid),
+        id = tab_id,
         ) # CustomTab
     extensionpoint_element.append(tab_element)
 
     shortstrings_element = officeapp_structure.xpath("//VersionOverrides/Resources/*[local-name()='ShortStrings']")[0]
     label_string_element = BT.String(
-        id=tab_id, DefaultValue=tab_label)
+        id=label_resid, DefaultValue=tab_label)
     shortstrings_element.append(label_string_element)
 
 def edit_element_id(element):
@@ -441,25 +466,25 @@ def edit_element_id(element):
     resource_element.set("DefaultValue", new_name)
 
 # TODO TODO TODO
-def edit_controlgroup_menu(group_element):
+def edit_group_menu(group_element):
 
     result = None 
     while result != "exit":
         menu = []
         for element in filter(is_control, group_element):
-            menu.append(f"Edit {element.tag} {element.get('id')}")
+            menu.append(f"Edit {element.xpath('@xsi:type', namespaces={'xsi': 'http://www.w3.org/2001/XMLSchema-instance'})[0]} {get_label_from_resid(get_resid(element))}")
         menu.append("Change group name")
-        menu.append("Create new control")
-        menu.append("Exit to main menu")
+        menu.append("Add a control to this group")
+        menu.append("Return to previous menu")
 
         os.system("cls")
 
         menuselection = inquirer.rawlist(
-            message=f"Editing group {group_element.get('id')}",
+            message=f"Editing group {get_label_from_resid(get_resid(group_element))}",
             choices=menu,
             default=1,
             multiselect=False,
-            validate=lambda result: len(result) > 1,
+            validate=lambda result: len(result) > 0,
         ).execute()
         index = menu.index(menuselection)
         if index < (len(menu)-3): # Edit a group
@@ -467,27 +492,35 @@ def edit_controlgroup_menu(group_element):
             input()
 
         elif menuselection == menu[-3]: # Change Tab Name
+            print("Still working on that")
             edit_element_id(group_element)
         elif menuselection == menu[-2]: # Create new control group
-            create_control(group_element)
+            if len(menu)<9:
+                create_control(group_element)
+            else:
+                os.system("cls")
+                print("Any further items will have to be added manually.\nThe library used for the menus has a limited length.")
+                input("Press Enter to continue")
         elif menuselection == menu[-1]: # Exit
             result = "exit"
 
+
 def create_custom_group(tab_element):
     group_id = generate_resid()
-    group_label = input ("What do you want the new group to be called?")
+    group_label = input ("What do you want the new group to be called?\n")
+    label_resid = generate_resid()
     icon16_resid = generate_resid()
     icon32_resid = generate_resid()
     icon80_resid = generate_resid()
 
     group_element = E.Group(
-        E.Label(resid=group_id),
+        E.Label(resid=label_resid),
         E.Icon(
             BT.Image(size="16", resid = icon16_resid),
             BT.Image(size="32", resid = icon32_resid),
             BT.Image(size="80", resid = icon80_resid)
         ),
-        id = group_label,
+        id = group_id,
         ) # Customgroup
     label_element = tab_element.find("Label")
     index = (tab_element.index(label_element))
@@ -497,7 +530,7 @@ def create_custom_group(tab_element):
     resources_element[0].append(BT.Image(id=icon16_resid, DefaultValue = "https://localhost:3000/assets/icon-16.png"))
     resources_element[0].append(BT.Image(id=icon32_resid, DefaultValue = "https://localhost:3000/assets/icon-32.png"))
     resources_element[0].append(BT.Image(id=icon80_resid, DefaultValue = "https://localhost:3000/assets/icon-80.png"))
-    resources_element[2].append(BT.String(id=group_id, DefaultValue = group_label))
+    resources_element[2].append(BT.String(id=label_resid, DefaultValue = group_label))
 
 def edit_group_name(group_element):
     new_name = input("Enter a new name for the tab:\n")
@@ -509,12 +542,12 @@ def edit_group_name(group_element):
 # TODO TODO TODO
 def create_control(group_element):
     control_id = generate_resid()
-    control_label = input ("What do you want the new control to be called?")
-
-    description = input("Enter a description for the control")
+    control_label = input ("What do you want the new control to be called?\n")
+    label_resid = generate_resid()
+    description = input("Enter a description for the control\n")
     description_resid = generate_resid()
 
-    title = input("Enter title for control")
+    title = input("Enter title for control\n")
     title_resid = generate_resid()
 
     icon16_resid = generate_resid()
@@ -524,7 +557,7 @@ def create_control(group_element):
     function_name = input("What JS/TS function will this button call?\n")
 
     control_element = E.Control(
-        E.Label(resid=control_id),
+        E.Label(resid=label_resid),
         E.Supertip(
             E.Title(
                 resid = title_resid
@@ -544,7 +577,7 @@ def create_control(group_element):
             ),
             {"{http://www.w3.org/2001/XMLSchema-instance}type": "ExecuteFunction"},        
         ),
-        id = control_label,
+        id = control_id,
         **{"{http://www.w3.org/2001/XMLSchema-instance}type": "Button"}          
 
         ) # Customcontrol
@@ -555,10 +588,10 @@ def create_control(group_element):
     resources_element[0].append(BT.Image(id=icon16_resid, DefaultValue = "https://localhost:3000/assets/icon-16.png"))
     resources_element[0].append(BT.Image(id=icon32_resid, DefaultValue = "https://localhost:3000/assets/icon-32.png"))
     resources_element[0].append(BT.Image(id=icon80_resid, DefaultValue = "https://localhost:3000/assets/icon-80.png"))
+    if len(resources_element.xpath('//*[@id="ScriptSource.Url"]')) == 0:
+        resources_element[1].append(BT.Url(id="ScriptSource.Url", DefaultValue = "https://localhost:3000/taskpane.html"))
 
-    resources_element[1].append(BT.Url(id="ScriptSource.Url", DefaultValue = "https://localhost:3000/taskpane.html"))
-
-    resources_element[2].append(BT.String(id=control_id, DefaultValue = control_label))
+    resources_element[2].append(BT.String(id=label_resid, DefaultValue = control_label))
     resources_element[2].append(BT.String(id=title_resid, DefaultValue = title))
 
     resources_element[3].append(BT.String(id=description_resid, DefaultValue = description))
