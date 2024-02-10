@@ -104,11 +104,11 @@
               <Group id="TemplatesGroup">
               <Label resid="OT-TemplatesGroup.Label"/>
               <Icon>
-                <bt:Image size="16" resid="OT-NumberingGroup.Icon.16"/>
-                <bt:Image size="32" resid="OT-NumberingGroup.Icon.32"/>
-                <bt:Image size="80" resid="OT-NumberingGroup.Icon.80"/>
+                <bt:Image size="16" resid="Placeholder.Icon.16"/>
+                <bt:Image size="32" resid="Placeholder.Icon.32"/>
+                <bt:Image size="80" resid="Placeholder.Icon.80"/>
               </Icon>
-                <Control xsi:type="Button" id="SectionHdrButton">
+                <Control xsi:type="Button" id="Placeholder">
                   <Label resid="Option1.Label"/>
 
                   <!--
@@ -116,8 +116,8 @@
                     Change all occurrences of each resid to something that makes sense for your project    
                   -->
                   <Supertip>
-                    <Title resid="SectionHdrButton.Supertip.Label"/>
-                    <Description resid="SectionHdrButton.Supertip.Desc"/>
+                    <Title resid="Placeholder.Supertip.Label"/>
+                    <Description resid="Placeholder.Supertip.Desc"/>
                   </Supertip>
 
                   <!--
@@ -126,9 +126,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
-                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
-                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
+                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
+                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -146,7 +146,7 @@
                   <!--Now that you've got all that done, move down to the resources section-->
                 </Control>
 
-                <Control xsi:type="Button" id="SectionHdrButton-2">
+                <Control xsi:type="Button" id="Placeholder-2">
                   <Label resid="Option2.Label"/>
 
                   <!--
@@ -154,8 +154,8 @@
                     Change all occurrences of each resid to something that makes sense for your project    
                   -->
                   <Supertip>
-                    <Title resid="SectionHdrButton.Supertip.Label"/>
-                    <Description resid="SectionHdrButton.Supertip.Desc"/>
+                    <Title resid="Placeholder.Supertip.Label"/>
+                    <Description resid="Placeholder.Supertip.Desc"/>
                   </Supertip>
 
                   <!--
@@ -164,9 +164,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
-                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
-                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
+                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
+                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -192,20 +192,20 @@
               <Group id="FormattingGroup">
               <Label resid="OT-FormattingGroup.Label"/>
               <Icon>
-                <bt:Image size="16" resid="OT-NumberingGroup.Icon.16"/>
-                <bt:Image size="32" resid="OT-NumberingGroup.Icon.32"/>
-                <bt:Image size="80" resid="OT-NumberingGroup.Icon.80"/>
+                <bt:Image size="16" resid="Placeholder.Icon.16"/>
+                <bt:Image size="32" resid="Placeholder.Icon.32"/>
+                <bt:Image size="80" resid="Placeholder.Icon.80"/>
               </Icon>
-                <Control xsi:type="Button" id="SectionHdrButton2">
-                  <Label resid="SectionHdrButton.Label"/>
+                <Control xsi:type="Button" id="Placeholder2">
+                  <Label resid="Placeholder.Label"/>
 
                   <!--
                     Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
                     Change all occurrences of each resid to something that makes sense for your project    
                   -->
                   <Supertip>
-                    <Title resid="SectionHdrButton.Supertip.Label"/>
-                    <Description resid="SectionHdrButton.Supertip.Desc"/>
+                    <Title resid="Placeholder.Supertip.Label"/>
+                    <Description resid="Placeholder.Supertip.Desc"/>
                   </Supertip>
 
                   <!--
@@ -214,9 +214,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
-                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
-                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
+                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
+                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -242,20 +242,20 @@
               <Group id="AttachmentsGroup">
               <Label resid="OT-AttachmentsGroup.Label"/>
               <Icon>
-                <bt:Image size="16" resid="OT-NumberingGroup.Icon.16"/>
-                <bt:Image size="32" resid="OT-NumberingGroup.Icon.32"/>
-                <bt:Image size="80" resid="OT-NumberingGroup.Icon.80"/>
+                <bt:Image size="16" resid="Placeholder.Icon.16"/>
+                <bt:Image size="32" resid="Placeholder.Icon.32"/>
+                <bt:Image size="80" resid="Placeholder.Icon.80"/>
               </Icon>
-                <Control xsi:type="Button" id="SectionHdrButton3">
-                  <Label resid="SectionHdrButton.Label"/>
+                <Control xsi:type="Button" id="Placeholder3">
+                  <Label resid="Placeholder.Label"/>
 
                   <!--
                     Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
                     Change all occurrences of each resid to something that makes sense for your project    
                   -->
                   <Supertip>
-                    <Title resid="SectionHdrButton.Supertip.Label"/>
-                    <Description resid="SectionHdrButton.Supertip.Desc"/>
+                    <Title resid="Placeholder.Supertip.Label"/>
+                    <Description resid="Placeholder.Supertip.Desc"/>
                   </Supertip>
 
                   <!--
@@ -264,9 +264,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
-                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
-                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
+                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
+                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -292,20 +292,20 @@
               <Group id="StepNumberGroup">
               <Label resid="OT-StepNumberGroup.Label"/>
               <Icon>
-                <bt:Image size="16" resid="OT-NumberingGroup.Icon.16"/>
-                <bt:Image size="32" resid="OT-NumberingGroup.Icon.32"/>
-                <bt:Image size="80" resid="OT-NumberingGroup.Icon.80"/>
+                <bt:Image size="16" resid="Placeholder.Icon.16"/>
+                <bt:Image size="32" resid="Placeholder.Icon.32"/>
+                <bt:Image size="80" resid="Placeholder.Icon.80"/>
               </Icon>
-                <Control xsi:type="Button" id="SectionHdrButton4">
-                  <Label resid="SectionHdrButton.Label"/>
+                <Control xsi:type="Button" id="Placeholder4">
+                  <Label resid="Placeholder.Label"/>
 
                   <!--
                     Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
                     Change all occurrences of each resid to something that makes sense for your project    
                   -->
                   <Supertip>
-                    <Title resid="SectionHdrButton.Supertip.Label"/>
-                    <Description resid="SectionHdrButton.Supertip.Desc"/>
+                    <Title resid="Placeholder.Supertip.Label"/>
+                    <Description resid="Placeholder.Supertip.Desc"/>
                   </Supertip>
 
                   <!--
@@ -314,9 +314,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
-                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
-                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
+                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
+                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -342,20 +342,20 @@
               <Group id="BulletGroup">
               <Label resid="OT-BulletGroup.Label"/>
               <Icon>
-                <bt:Image size="16" resid="OT-NumberingGroup.Icon.16"/>
-                <bt:Image size="32" resid="OT-NumberingGroup.Icon.32"/>
-                <bt:Image size="80" resid="OT-NumberingGroup.Icon.80"/>
+                <bt:Image size="16" resid="Placeholder.Icon.16"/>
+                <bt:Image size="32" resid="Placeholder.Icon.32"/>
+                <bt:Image size="80" resid="Placeholder.Icon.80"/>
               </Icon>
-                <Control xsi:type="Button" id="SectionHdrButton5">
-                  <Label resid="SectionHdrButton.Label"/>
+                <Control xsi:type="Button" id="Placeholder5">
+                  <Label resid="Placeholder.Label"/>
 
                   <!--
                     Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
                     Change all occurrences of each resid to something that makes sense for your project    
                   -->
                   <Supertip>
-                    <Title resid="SectionHdrButton.Supertip.Label"/>
-                    <Description resid="SectionHdrButton.Supertip.Desc"/>
+                    <Title resid="Placeholder.Supertip.Label"/>
+                    <Description resid="Placeholder.Supertip.Desc"/>
                   </Supertip>
 
                   <!--
@@ -364,9 +364,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
-                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
-                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
+                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
+                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -392,20 +392,20 @@
               <Group id="PlainTextGroup">
               <Label resid="OT-PlainTextGroup.Label"/>
               <Icon>
-                <bt:Image size="16" resid="OT-NumberingGroup.Icon.16"/>
-                <bt:Image size="32" resid="OT-NumberingGroup.Icon.32"/>
-                <bt:Image size="80" resid="OT-NumberingGroup.Icon.80"/>
+                <bt:Image size="16" resid="Placeholder.Icon.16"/>
+                <bt:Image size="32" resid="Placeholder.Icon.32"/>
+                <bt:Image size="80" resid="Placeholder.Icon.80"/>
               </Icon>
-                <Control xsi:type="Button" id="SectionHdrButton6">
-                  <Label resid="SectionHdrButton.Label"/>
+                <Control xsi:type="Button" id="Placeholder6">
+                  <Label resid="Placeholder.Label"/>
 
                   <!--
                     Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
                     Change all occurrences of each resid to something that makes sense for your project    
                   -->
                   <Supertip>
-                    <Title resid="SectionHdrButton.Supertip.Label"/>
-                    <Description resid="SectionHdrButton.Supertip.Desc"/>
+                    <Title resid="Placeholder.Supertip.Label"/>
+                    <Description resid="Placeholder.Supertip.Desc"/>
                   </Supertip>
 
                   <!--
@@ -414,9 +414,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
-                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
-                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
+                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
+                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -442,11 +442,11 @@
               <Group id="NCWGroup">
               <Label resid="OT-NCWGroup.Label"/>
               <Icon>
-                <bt:Image size="16" resid="OT-NumberingGroup.Icon.16"/>
-                <bt:Image size="32" resid="OT-NumberingGroup.Icon.32"/>
-                <bt:Image size="80" resid="OT-NumberingGroup.Icon.80"/>
+                <bt:Image size="16" resid="Placeholder.Icon.16"/>
+                <bt:Image size="32" resid="Placeholder.Icon.32"/>
+                <bt:Image size="80" resid="Placeholder.Icon.80"/>
               </Icon>
-                <Control xsi:type="Button" id="SectionHdrButton7">
+                <Control xsi:type="Button" id="NoteButton">
                   <Label resid="Note.Label"/>
 
                   <!--
@@ -454,8 +454,8 @@
                     Change all occurrences of each resid to something that makes sense for your project    
                   -->
                   <Supertip>
-                    <Title resid="SectionHdrButton.Supertip.Label"/>
-                    <Description resid="SectionHdrButton.Supertip.Desc"/>
+                    <Title resid="Note.Supertip.Label"/>
+                    <Description resid="Note.Supertip.Desc"/>
                   </Supertip>
 
                   <!--
@@ -464,9 +464,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
-                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
-                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
+                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
+                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -484,7 +484,7 @@
                   <!--Now that you've got all that done, move down to the resources section-->
                 </Control>
 
-                <Control xsi:type="Button" id="SectionHdrButton-3">
+                <Control xsi:type="Button" id="CautionButton">
                   <Label resid="Caution.Label"/>
 
                   <!--
@@ -492,8 +492,8 @@
                     Change all occurrences of each resid to something that makes sense for your project    
                   -->
                   <Supertip>
-                    <Title resid="SectionHdrButton.Supertip.Label"/>
-                    <Description resid="SectionHdrButton.Supertip.Desc"/>
+                    <Title resid="Caution.Supertip.Label"/>
+                    <Description resid="Caution.Supertip.Desc"/>
                   </Supertip>
 
                   <!--
@@ -502,9 +502,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
-                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
-                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
+                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
+                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -522,7 +522,7 @@
                   <!--Now that you've got all that done, move down to the resources section-->
                 </Control>
 
-                <Control xsi:type="Button" id="SectionHdrButton-4">
+                <Control xsi:type="Button" id="WarningButton">
                   <Label resid="Warning.Label"/>
 
                   <!--
@@ -530,8 +530,8 @@
                     Change all occurrences of each resid to something that makes sense for your project    
                   -->
                   <Supertip>
-                    <Title resid="SectionHdrButton.Supertip.Label"/>
-                    <Description resid="SectionHdrButton.Supertip.Desc"/>
+                    <Title resid="Warning.Supertip.Label"/>
+                    <Description resid="Warning.Supertip.Desc"/>
                   </Supertip>
 
                   <!--
@@ -540,9 +540,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="SectionHdrButton.Icon.16"/>
-                    <bt:Image size="32" resid="SectionHdrButton.Icon.32"/>
-                    <bt:Image size="80" resid="SectionHdrButton.Icon.80"/>
+                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
+                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
+                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -580,12 +580,10 @@
         <bt:Image id="Taskpane.Icon.16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
         <bt:Image id="Taskpane.Icon.32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
         <bt:Image id="Taskpane.Icon.80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
-        <bt:Image id="OT-NumberingGroup.Icon.16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-        <bt:Image id="OT-NumberingGroup.Icon.32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-        <bt:Image id="OT-NumberingGroup.Icon.80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
-        <bt:Image id="SectionHdrButton.Icon.16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-        <bt:Image id="SectionHdrButton.Icon.32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-        <bt:Image id="SectionHdrButton.Icon.80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+        
+        <bt:Image id="Placeholder.Icon.16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+        <bt:Image id="Placeholder.Icon.32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+        <bt:Image id="Placeholder.Icon.80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
       </bt:Images>
       
       <!--When a URL is called, its ID is looked for here-->
@@ -596,11 +594,13 @@
 
       <!--125 character max. Used for "Label" and "Title" attributes-->
       <bt:ShortStrings>
+        <bt:String id="OT-CustomTab.Label" DefaultValue="Opertools" />
+
         <bt:String id="OT-TaskPaneGroup.Label" DefaultValue="Taskpane"/>
         <bt:String id="TaskpaneButton.Label" DefaultValue="Show Taskpane"/>
-        <bt:String id="OT-CustomTab.Label" DefaultValue="Opertools" />
-        <bt:String id="SectionHdrButton.Label" DefaultValue="TBD"/>
-        <bt:String id="SectionHdrButton.Supertip.Label" DefaultValue="Supertip label"/> 
+
+        <bt:String id="Placeholder.Label" DefaultValue="TBD"/>
+        <bt:String id="Placeholder.Supertip.Label" DefaultValue="Supertip label"/> 
 
         <bt:String id="OT-TemplatesGroup.Label" DefaultValue="Templates"/>
         <bt:String id="Option1.Label" DefaultValue="Option 1"/>
@@ -618,14 +618,22 @@
 
         <bt:String id="OT-NCWGroup.Label" DefaultValue="Note, Caution, Warning"/>
         <bt:String id="Note.Label" DefaultValue="Note"/>
+        <bt:String id="Note.Supertip.Label" DefaultValue="Note"/> 
         <bt:String id="Caution.Label" DefaultValue="Caution"/>
+        <bt:String id="Caution.Supertip.Label" DefaultValue="Caution"/> 
         <bt:String id="Warning.Label" DefaultValue="Warning"/>
+        <bt:String id="Warning.Supertip.Label" DefaultValue="Warning"/> 
       </bt:ShortStrings>
 
       <!--250 characters max. Used for "Description" attributes-->
       <bt:LongStrings>
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane"/>
-        <bt:String id="SectionHdrButton.Supertip.Desc" DefaultValue="This is a description of this control."/>
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to show the Taskpane"/>
+
+        <bt:String id="Placeholder.Supertip.Desc" DefaultValue="This is a description of this control."/>
+
+        <bt:String id="Note.Supertip.Desc" DefaultValue="Add a note."/>
+        <bt:String id="Caution.Supertip.Desc" DefaultValue="Add a caution."/>
+        <bt:String id="Warning.Supertip.Desc" DefaultValue="Add a warning."/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>
