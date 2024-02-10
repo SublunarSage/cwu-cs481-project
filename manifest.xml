@@ -464,9 +464,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
-                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
-                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
+                    <bt:Image size="16" resid="Note.Icon.16"/>
+                    <bt:Image size="32" resid="Note.Icon.32"/>
+                    <bt:Image size="80" resid="Note.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -502,9 +502,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
-                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
-                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
+                    <bt:Image size="16" resid="Caution.Icon.16"/>
+                    <bt:Image size="32" resid="Caution.Icon.32"/>
+                    <bt:Image size="80" resid="Caution.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -540,9 +540,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
-                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
-                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
+                    <bt:Image size="16" resid="Warning.Icon.16"/>
+                    <bt:Image size="32" resid="Warning.Icon.32"/>
+                    <bt:Image size="80" resid="Warning.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -584,6 +584,18 @@
         <bt:Image id="Placeholder.Icon.16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
         <bt:Image id="Placeholder.Icon.32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
         <bt:Image id="Placeholder.Icon.80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+
+        <bt:Image id="Note.Icon.16" DefaultValue="https://localhost:3000/assets/note-icon-16.png"/>
+        <bt:Image id="Note.Icon.32" DefaultValue="https://localhost:3000/assets/note-icon-32.png"/>
+        <bt:Image id="Note.Icon.80" DefaultValue="https://localhost:3000/assets/note-icon-80.png"/>
+
+        <bt:Image id="Caution.Icon.16" DefaultValue="https://localhost:3000/assets/caution-icon-16.png"/>
+        <bt:Image id="Caution.Icon.32" DefaultValue="https://localhost:3000/assets/caution-icon-32.png"/>
+        <bt:Image id="Caution.Icon.80" DefaultValue="https://localhost:3000/assets/caution-icon-80.png"/>
+
+        <bt:Image id="Warning.Icon.16" DefaultValue="https://localhost:3000/assets/warning-icon-16.png"/>
+        <bt:Image id="Warning.Icon.32" DefaultValue="https://localhost:3000/assets/warning-icon-32.png"/>
+        <bt:Image id="Warning.Icon.80" DefaultValue="https://localhost:3000/assets/warning-icon-80.png"/>
       </bt:Images>
       
       <!--When a URL is called, its ID is looked for here-->
