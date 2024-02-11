@@ -70,9 +70,9 @@
 
                 <!--The group requires an icon set, has to include 16, 32, and 80-->
                 <Icon>
-                  <bt:Image size="16" resid="Taskpane.Icon.16"/>
-                  <bt:Image size="32" resid="Taskpane.Icon.32"/>
-                  <bt:Image size="80" resid="Taskpane.Icon.80"/>
+                  <bt:Image size="16" resid="Opertools.Icon.16"/>
+                  <bt:Image size="32" resid="Opertools.Icon.32"/>
+                  <bt:Image size="80" resid="Opertools.Icon.80"/>
                 </Icon>
 
                 <!--Button, Menu, or MobileButton (mail only)-->
@@ -86,9 +86,9 @@
 
                   <!--Controls require their own icons sets too-->
                   <Icon>
-                    <bt:Image size="16" resid="Taskpane.Icon.16"/>
-                    <bt:Image size="32" resid="Taskpane.Icon.32"/>
-                    <bt:Image size="80" resid="Taskpane.Icon.80"/>
+                    <bt:Image size="16" resid="Opertools.Icon.16"/>
+                    <bt:Image size="32" resid="Opertools.Icon.32"/>
+                    <bt:Image size="80" resid="Opertools.Icon.80"/>
                   </Icon>
                   <!--Execute function or show taskpane-->
                   <Action xsi:type="ShowTaskpane">
@@ -126,9 +126,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
-                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
-                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
+                    <bt:Image size="16" resid="Option1.Icon.16"/>
+                    <bt:Image size="32" resid="Option1.Icon.32"/>
+                    <bt:Image size="80" resid="Option1.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -164,9 +164,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
-                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
-                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
+                    <bt:Image size="16" resid="Option2.Icon.16"/>
+                    <bt:Image size="32" resid="Option2.Icon.32"/>
+                    <bt:Image size="80" resid="Option2.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -214,9 +214,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
-                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
-                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
+                    <bt:Image size="16" resid="Format.Icon.16"/>
+                    <bt:Image size="32" resid="Format.Icon.32"/>
+                    <bt:Image size="80" resid="Format.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -264,9 +264,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
-                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
-                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
+                    <bt:Image size="16" resid="Attach.Icon.16"/>
+                    <bt:Image size="32" resid="Attach.Icon.32"/>
+                    <bt:Image size="80" resid="Attach.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -314,9 +314,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
-                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
-                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
+                    <bt:Image size="16" resid="Number.Icon.16"/>
+                    <bt:Image size="32" resid="Number.Icon.32"/>
+                    <bt:Image size="80" resid="Number.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -364,9 +364,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
-                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
-                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
+                    <bt:Image size="16" resid="Bullet.Icon.16"/>
+                    <bt:Image size="32" resid="Bullet.Icon.32"/>
+                    <bt:Image size="80" resid="Bullet.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -414,9 +414,9 @@
                     Change the resource references for each icon to the location you store them
                   -->
                   <Icon>
-                    <bt:Image size="16" resid="Placeholder.Icon.16"/>
-                    <bt:Image size="32" resid="Placeholder.Icon.32"/>
-                    <bt:Image size="80" resid="Placeholder.Icon.80"/>
+                    <bt:Image size="16" resid="Plain.Icon.16"/>
+                    <bt:Image size="32" resid="Plain.Icon.32"/>
+                    <bt:Image size="80" resid="Plain.Icon.80"/>
                   </Icon>
 
                   <!--
@@ -585,6 +585,38 @@
         <bt:Image id="Placeholder.Icon.32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
         <bt:Image id="Placeholder.Icon.80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
 
+        <bt:Image id="Opertools.Icon.16" DefaultValue="https://localhost:3000/assets/opertools-icon-16.png"/>
+        <bt:Image id="Opertools.Icon.32" DefaultValue="https://localhost:3000/assets/opertools-icon-32.png"/>
+        <bt:Image id="Opertools.Icon.80" DefaultValue="https://localhost:3000/assets/opertools-icon-80.png"/>
+
+        <bt:Image id="Option1.Icon.16" DefaultValue="https://localhost:3000/assets/option-1-icon-16.png"/>
+        <bt:Image id="Option1.Icon.32" DefaultValue="https://localhost:3000/assets/option-1-icon-32.png"/>
+        <bt:Image id="Option1.Icon.80" DefaultValue="https://localhost:3000/assets/option-1-icon-80.png"/>
+
+        <bt:Image id="Option2.Icon.16" DefaultValue="https://localhost:3000/assets/option-2-icon-16.png"/>
+        <bt:Image id="Option2.Icon.32" DefaultValue="https://localhost:3000/assets/option-2-icon-32.png"/>
+        <bt:Image id="Option2.Icon.80" DefaultValue="https://localhost:3000/assets/option-2-icon-80.png"/>
+
+        <bt:Image id="Format.Icon.16" DefaultValue="https://localhost:3000/assets/format-icon-16.png"/>
+        <bt:Image id="Format.Icon.32" DefaultValue="https://localhost:3000/assets/format-icon-32.png"/>
+        <bt:Image id="Format.Icon.80" DefaultValue="https://localhost:3000/assets/format-icon-80.png"/>
+        
+        <bt:Image id="Attach.Icon.16" DefaultValue="https://localhost:3000/assets/attach-icon-16.png"/>
+        <bt:Image id="Attach.Icon.32" DefaultValue="https://localhost:3000/assets/attach-icon-32.png"/>
+        <bt:Image id="Attach.Icon.80" DefaultValue="https://localhost:3000/assets/attach-icon-80.png"/>
+        
+        <bt:Image id="Number.Icon.16" DefaultValue="https://localhost:3000/assets/number-icon-16.png"/>
+        <bt:Image id="Number.Icon.32" DefaultValue="https://localhost:3000/assets/number-icon-32.png"/>
+        <bt:Image id="Number.Icon.80" DefaultValue="https://localhost:3000/assets/number-icon-80.png"/>
+        
+        <bt:Image id="Bullet.Icon.16" DefaultValue="https://localhost:3000/assets/bullet-icon-16.png"/>
+        <bt:Image id="Bullet.Icon.32" DefaultValue="https://localhost:3000/assets/bullet-icon-32.png"/>
+        <bt:Image id="Bullet.Icon.80" DefaultValue="https://localhost:3000/assets/bullet-icon-80.png"/>
+
+        <bt:Image id="Plain.Icon.16" DefaultValue="https://localhost:3000/assets/plain-icon-16.png"/>
+        <bt:Image id="Plain.Icon.32" DefaultValue="https://localhost:3000/assets/plain-icon-32.png"/>
+        <bt:Image id="Plain.Icon.80" DefaultValue="https://localhost:3000/assets/plain-icon-80.png"/>
+
         <bt:Image id="Note.Icon.16" DefaultValue="https://localhost:3000/assets/note-icon-16.png"/>
         <bt:Image id="Note.Icon.32" DefaultValue="https://localhost:3000/assets/note-icon-32.png"/>
         <bt:Image id="Note.Icon.80" DefaultValue="https://localhost:3000/assets/note-icon-80.png"/>
@@ -596,6 +628,8 @@
         <bt:Image id="Warning.Icon.16" DefaultValue="https://localhost:3000/assets/warning-icon-16.png"/>
         <bt:Image id="Warning.Icon.32" DefaultValue="https://localhost:3000/assets/warning-icon-32.png"/>
         <bt:Image id="Warning.Icon.80" DefaultValue="https://localhost:3000/assets/warning-icon-80.png"/>
+      
+
       </bt:Images>
       
       <!--When a URL is called, its ID is looked for here-->
