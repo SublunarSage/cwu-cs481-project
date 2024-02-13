@@ -2,7 +2,7 @@
 <!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -34,14 +34,11 @@
     <link rel="shortcut icon" href="#">
 </head>
 
-<body class="ms-font-m ms-welcome ms-Fabric">
-     <header class="ms-welcome__header ms-bgColor-neutralLighter">
+<body class="ms-font-m ms-welcome ms-Fabric ms-bgColor-neutralLighter">
+     <header class="ms-welcome__header">
         <img width="180" height="150" src="../../assets/Maggie.jpg" alt="Maggie" title="Maggie" />
         <h1 class="ms-font-su">Welcome</h1>
     </header>
-    <section id="sideload-msg" class="ms-welcome__main">
-        <h2 class="ms-font-xl">Please <a target="_blank" href="https://learn.microsoft.com/office/dev/add-ins/testing/test-debug-office-add-ins#sideload-an-office-add-in-for-testing">sideload</a> your add-in to see app body.</h2>
-    </section>
     <main id="app-body" class="ms-welcome__main" style="display: none;">
         <button class="ms-Button" id="insert-paragraph">Insert Paragraph</button><br/><br/>
     </main>
@@ -50,7 +47,7 @@
         <p>
             <h4>Get current number of styles</h4>
             <button id="count" class="ms-Button">
-                    <span class="ms-Button-label">Get count</span>
+                <span class="ms-Button-label">Get count</span>
             </button>
             <p id="count-output"></p>
         </p>
@@ -69,15 +66,15 @@
         <option>List</option>  
         <option>Table</option>
       </select>
- -->            <p /> 
-            <button id="add-style" class="ms-Button">
+        <p /> -->
+      <button id="add-style" class="ms-Button">
         <span class="ms-Button-label">Add style</span>
       </button>
       <button id="add-style-list" class="ms-Button">
         <span class="ms-Button-label">Add style list</span>
       </button>
     
-            <h4>Use custom style</h4>
+    <h4>Use custom style</h4>
 <!--             <label style="margin-left: 20px">Style name:</label>
             <input id="style-name-to-use"/>
             <p />
@@ -99,10 +96,12 @@
         <button id="find-content-controls" class="ms-Button">
             <span class="ms-Button-label">Find Content Controls</span>
         </button>
-         <div>Number of controls:</div> <div id="controls-number"></div>
+        <div>Number of controls:</div> <div id="controls-number"></div>
         <br/>
-
-        <input id="content-control-input" type="text" />
+        
+        <label>
+            Test: <input id="content-control-input" type="text" >
+        </label>
 
         <button id="update-document-details" class="ms-Button">
             <span class="ms-Button-label">Update Document Details</span>
