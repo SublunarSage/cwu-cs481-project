@@ -10,7 +10,7 @@
 Office.onReady((info) => {
   if (info.host === Office.HostType.Word) {
     // Assign event handlers and other initialization logic.
-    document.getElementById("insert-paragraph").onclick = () => tryCatch(insertParagraph);
+    document.getElementById("test-btn").onclick = testmsg;
     document.getElementById("sideload-msg").style.display = "none";
     document.getElementById("app-body").style.display = "flex";
     document.getElementById("add-style").onclick = () => tryCatch(addStyle);
@@ -50,6 +50,7 @@ Office.actions.associate("setStyleSectionHeader", setStyleSectionHeader);
 async function test(event) {
   await Word.run(async (context) => {
     const docBody = context.document.body;
+    // Print "WARNING"
     docBody.insertParagraph("WARNING", Word.InsertLocation.start);
     await context.sync();
   });
@@ -57,13 +58,13 @@ async function test(event) {
 }
 Office.actions.associate("test", test);
 
-async function insertParagraph() {
+async function testmsg() {
   await Word.run(async (context) => {
     const docBody = context.document.body;
-    docBody.insertParagraph(
-      "Office has several versions, including Office 2016, Microsoft 365 subscription, and Office on the web.",
-      Word.InsertLocation.start
-    );
+    // Print "Test."
+    docBody.insertParagraph("Test.", Word.InsertLocation.start);
+    // Set color to blue
+    docBody.font.color = "blue";
     await context.sync();
   });
 }
