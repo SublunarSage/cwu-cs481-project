@@ -5,7 +5,7 @@
 
 /* global document, Office, Word */
 
-let _count = 0;
+// let count = 0;
 
 Office.onReady((info) => {
   if (info.host === Office.HostType.Word) {
@@ -22,11 +22,8 @@ Office.onReady((info) => {
     document.getElementById("update-document-details").onclick = () => tryCatch(updateDocumentDetails);
     document.getElementById("create-header").onclick = () => tryCatch(createHeader);
     //document.getElementById("create-header-json").onclick = () => createHeaderFromJson;
-
   }
 });
-
-
 
 async function setStyleSectionHeader(event) {
   await Word.run(async (context) => {
@@ -34,9 +31,7 @@ async function setStyleSectionHeader(event) {
     var selection = context.document.getSelection().getRange();
     var firstParagraph = selection.paragraphs.getFirstOrNullObject();
     var lastParagraph = selection.paragraphs.getLastOrNullObject();
-    var updatedSelection = selection.
-      expandTo(firstParagraph.getRange()).
-      expandTo(lastParagraph.getRange());
+    var updatedSelection = selection.expandTo(firstParagraph.getRange()).expandTo(lastParagraph.getRange());
     //load the paragraphs and await sync
     updatedSelection.paragraphs.load();
     await context.sync();
@@ -47,17 +42,28 @@ async function setStyleSectionHeader(event) {
 
     //Move the cursor to the end of the selection
     updatedSelection.paragraphs.getLast().getNextOrNullObject().select("Start");
-
   });
   event.completed();
 }
 Office.actions.associate("setStyleSectionHeader", setStyleSectionHeader);
 
+async function test(event) {
+  await Word.run(async (context) => {
+    const docBody = context.document.body;
+    docBody.insertParagraph("WARNING", Word.InsertLocation.start);
+    await context.sync();
+  });
+  event.completed();
+}
+Office.actions.associate("test", test);
+
 async function insertParagraph() {
   await Word.run(async (context) => {
-
     const docBody = context.document.body;
-    docBody.insertParagraph("Office has several versions, including Office 2016, Microsoft 365 subscription, and Office on the web.", Word.InsertLocation.start);
+    docBody.insertParagraph(
+      "Office has several versions, including Office 2016, Microsoft 365 subscription, and Office on the web.",
+      Word.InsertLocation.start
+    );
     await context.sync();
   });
 }
@@ -65,10 +71,10 @@ async function insertParagraph() {
 /** Default helper for invoking an action and handling errors. */
 async function tryCatch(callback) {
   try {
-      await callback();
+    await callback();
   } catch (error) {
-      // Note: In a production add-in, you'd want to notify the user through your add-in's UI.
-      console.error(error);
+    // Note: In a production add-in, you'd want to notify the user through your add-in's UI.
+    console.error(error);
   }
 }
 
@@ -99,7 +105,6 @@ async function addStyle() {
     //style.paragraphFormat.alignment = Word.Alignment.centered;
     //await context.sync();
     //console.log(`Successfully the paragraph format of the '${newStyleName}' style.`);
-
   });
 }
 
@@ -109,17 +114,13 @@ async function applyStyle() {
     var selection = context.document.getSelection().getRange();
     var firstParagraph = selection.paragraphs.getFirstOrNullObject();
     var lastParagraph = selection.paragraphs.getLastOrNullObject();
-    var updatedSelection = selection.
-      expandTo(firstParagraph.getRange()).
-      expandTo(lastParagraph.getRange());
+    var updatedSelection = selection.expandTo(firstParagraph.getRange()).expandTo(lastParagraph.getRange());
     //load the paragraphs and await sync
     updatedSelection.paragraphs.load();
     await context.sync();
 
     //console.log(updatedSelection.text)
     updatedSelection.style = "test2";
-    
-
 
     await context.sync();
 
@@ -134,7 +135,7 @@ async function getCount() {
     const styles = context.document.getStyles();
     const count = styles.getCount();
     await context.sync();
-  document.getElementById("count-output").innerHTML = count.value;
+    document.getElementById("count-output").innerHTML = count.value;
     //console.log(`Number of styles: ${count.value}`);
   });
 }
@@ -145,12 +146,11 @@ import { stylesToAdd } from "./styleList.js";
 function addStyleList() {
   //define styles to be added
 
-
-   //call the forEach function to add styles
+  //call the forEach function to add styles
   stylesToAdd.forEach(addCustomStyles);
 
   //define the function
-  async function addCustomStyles(value){
+  async function addCustomStyles(value) {
     //create variables for each iteration
     const newStyleType = value.type;
     const newStyleName = value.name;
@@ -175,8 +175,7 @@ function addStyleList() {
       const style = context.document.getStyles().getByNameOrNullObject(newStyleName);
       style.load("$all");
       await context.sync();
-      console.log('Style loaded.');
-
+      console.log("Style loaded.");
 
       //define font style (color working, size not)
       const font = style.font;
@@ -190,33 +189,26 @@ function addStyleList() {
       style.paragraphFormat.alignment = Word.Alignment.centered;
       console.log(`Paragraph has been formatted`);
       await context.sync();
-
     });
-
   }
-} 
-
+}
 
 async function insertControl() {
   await Word.run(async (context) => {
-    const range = context.document.getSelection();  
-    const wordContentControl = range.insertContentControl(); 
+    const range = context.document.getSelection();
+    const wordContentControl = range.insertContentControl();
 
-    wordContentControl.tag = "OT-DocTitle";  
+    wordContentControl.tag = "OT-DocTitle";
     wordContentControl.title = "Document Title";
-    wordContentControl.insertText("Procedure #1", 'Replace');
+    wordContentControl.insertText("Procedure #1", "Replace");
     wordContentControl.cannotEdit = true;
     //wordContentControl.cannotDelete = true;
-    await context.sync()  
+    await context.sync();
   });
 }
 
-
-
-
 async function findContentControls() {
   await Word.run(async (context) => {
-
     var nameControls = context.document.contentControls;
     nameControls.load();
     await context.sync();
@@ -225,7 +217,6 @@ async function findContentControls() {
     document.getElementById("controls-number").innerHTML = nameControls.items.length;
   });
 }
-
 
 async function updateDocumentDetails() {
   // Adds title and colors to odd and even content controls and changes their appearance.
@@ -240,14 +231,14 @@ async function updateDocumentDetails() {
       // Change a few properties and append a paragraph
       evenContentControls.items[i].set({
         //insert properties to set here
-        cannotEdit: false
+        cannotEdit: false,
       });
       var newName = document.getElementById("content-control-input").value;
       //change the text
       evenContentControls.items[i].insertText(newName, "Replace");
       evenContentControls.items[i].set({
         //insert properties to set here
-        cannotEdit: true
+        cannotEdit: true,
       });
     }
     await context.sync();
@@ -262,47 +253,43 @@ async function createHeader() {
     //console.log(headerTables.items.length);
 
     // If no tables in header, create table
-    if (headerTables.items.length ==0) {
+    if (headerTables.items.length == 0) {
       context.document.sections.getFirst().getHeader(Word.HeaderFooterType.primary).clear();
-      context.document.sections.getFirst().getHeader(Word.HeaderFooterType.primary).insertTable(3,3,"Start");
+      context.document.sections.getFirst().getHeader(Word.HeaderFooterType.primary).insertTable(3, 3, "Start");
       await context.sync();
 
+      // Load the table
+      const headerTable = context.document.sections
+        .getFirst()
+        .getHeader(Word.HeaderFooterType.primary)
+        .tables.getFirst();
+      headerTable.load();
+      await context.sync();
 
-    // Load the table
-    const headerTable = context.document.sections.getFirst().getHeader(Word.HeaderFooterType.primary).tables.getFirst();
-    headerTable.load();
-    await context.sync();
+      //Insert Logo
+      const logoCell = headerTable.getCell(0, 0).body;
+      logoCell.load();
+      await context.sync();
+      logoCell.insertText("Insert Logo Here", "Replace");
 
-    //Insert Logo
-    const logoCell = headerTable.getCell(0,0).body;
-    logoCell.load();
-    await context.sync();
-    logoCell.insertText("Insert Logo Here", "Replace");
+      //Insert Document Name
+      const range = headerTable.getCell(0, 1).body.getRange("Content");
+      var cellData = range.insertContentControl();
 
-    //Insert Document Name
-    const range = headerTable.getCell(0,1).body.getRange("Content");
-    var cellData = range.insertContentControl(); 
+      cellData.tag = "OT-DocTitle";
+      cellData.title = "Document Title";
+      cellData.insertText("Procedure #1", "Replace");
+      cellData.cannotEdit = true;
+      //cellData.cannotDelete = true;
+      await context.sync();
 
-    cellData.tag = "OT-DocTitle";  
-    cellData.title = "Document Title";
-    cellData.insertText("Procedure #1", 'Replace');
-    cellData.cannotEdit = true;
-    //cellData.cannotDelete = true;
-    await context.sync()  
-
-    await context.sync();
-    return;
-    };
-
-
-
-
+      await context.sync();
+      return;
+    }
 
     //header.insertParagraph("Office has several versions, including Office 2016, Microsoft 365 subscription, and Office on the web.", Word.InsertLocation.start);
-
   });
 }
-
 
 /* import { headerArray } from "./header.js";
 
@@ -347,8 +334,8 @@ async function createHeaderFromJson() {
         console.log(headerCell.title);
         wordContentControl.insertText("Procedure #1", 'Replace');
 
- */        
-        /*
+ */
+/*
         wordContentControl.cannotEdit = headerCell.cannotEdit;
         //wordContentControl.cannotdelete = headerCell.cannotDelete;
         

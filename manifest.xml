@@ -554,7 +554,7 @@
                   <!--OR THIS ONE-->
                   <Action xsi:type="ExecuteFunction">
                     <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>setStyleSectionHeader</FunctionName>
+                    <FunctionName>test</FunctionName>
                   </Action>
 
                   <!--Now that you've got all that done, move down to the resources section-->
