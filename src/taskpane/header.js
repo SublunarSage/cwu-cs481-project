@@ -1,4 +1,4 @@
-export const headerArray = [
+/*export const headerArray = [
     {
         //can be set with a .val= function
         row: 0,
@@ -23,4 +23,4 @@ export const headerArray = [
         //has to be set with a set() function
         text: "PROC-1" 
     }
-]
+]*/

@@ -1,6 +1,6 @@
-
-Office.onReady((info) => {});
 /*
+Office.onReady((info) => {});
+
 async function setStyleSectionHeader(event) {
   await Word.run(async (context) => {
     //Get selected range and expand it to include the whole first and last paragraphs

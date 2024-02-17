@@ -7,25 +7,26 @@
 
 // let count = 0;
 
+// Links taskpane buttons to a function
 Office.onReady((info) => {
   if (info.host === Office.HostType.Word) {
     // Assign event handlers and other initialization logic.
     document.getElementById("test-btn").onclick = testmsg;
     document.getElementById("sideload-msg").style.display = "none";
     document.getElementById("app-body").style.display = "flex";
-    document.getElementById("add-style").onclick = () => tryCatch(addStyle);
+    /*document.getElementById("add-style").onclick = () => tryCatch(addStyle);
     document.getElementById("count").onclick = () => tryCatch(getCount);
     document.getElementById("add-style-list").onclick = () => tryCatch(addStyleList);
     document.getElementById("apply-style").onclick = () => tryCatch(applyStyle);
     document.getElementById("insert-control").onclick = () => tryCatch(insertControl);
     document.getElementById("find-content-controls").onclick = () => tryCatch(findContentControls);
     document.getElementById("update-document-details").onclick = () => tryCatch(updateDocumentDetails);
-    document.getElementById("create-header").onclick = () => tryCatch(createHeader);
+    document.getElementById("create-header").onclick = () => tryCatch(createHeader);*/
     //document.getElementById("create-header-json").onclick = () => createHeaderFromJson;
   }
 });
 
-async function setStyleSectionHeader(event) {
+/*async function setStyleSectionHeader(event) {
   await Word.run(async (context) => {
     //Get selected range and expand it to include the whole first and last paragraphs
     var selection = context.document.getSelection().getRange();
@@ -45,8 +46,15 @@ async function setStyleSectionHeader(event) {
   });
   event.completed();
 }
-Office.actions.associate("setStyleSectionHeader", setStyleSectionHeader);
+Office.actions.associate("setStyleSectionHeader", setStyleSectionHeader);*/
 
+// Placeholder for ribbon buttons
+async function placeholder(event) {
+  event.completed();
+}
+Office.actions.associate("placeholder", placeholder);
+
+// Example function for ribbon buttons
 async function test(event) {
   await Word.run(async (context) => {
     const docBody = context.document.body;
@@ -58,6 +66,7 @@ async function test(event) {
 }
 Office.actions.associate("test", test);
 
+// Example function for taskpane buttons
 async function testmsg() {
   await Word.run(async (context) => {
     const docBody = context.document.body;
@@ -70,7 +79,7 @@ async function testmsg() {
 }
 
 /** Default helper for invoking an action and handling errors. */
-async function tryCatch(callback) {
+/*async function tryCatch(callback) {
   try {
     await callback();
   } catch (error) {
@@ -323,7 +332,7 @@ async function createHeaderFromJson() {
         selectedCell.load();
         await context.sync();
         console.log("cell loaded");
-
+*/
 /*         
         //Insert Document Name
         const range = headerTable.getCell(0,1).body.getRange("Content");

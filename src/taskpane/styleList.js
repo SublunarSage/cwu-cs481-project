@@ -1,4 +1,4 @@
-export const stylesToAdd = [
+/*export const stylesToAdd = [
     {
       "name": "test1",
       "type": Word.StyleType.paragraph,
@@ -13,7 +13,7 @@ export const stylesToAdd = [
       "leftIndent": 30,
       "fontSize": 10,
       "fontColor":  "blue"
-    }/*,
+    },
     {
       "name": "test3",
       "type": "Paragraph"
@@ -29,5 +29,5 @@ export const stylesToAdd = [
     }, {
       "name": "test7",
       "type": "Paragraph"
-    }*/
-  ];
+    }
+  ];*/
