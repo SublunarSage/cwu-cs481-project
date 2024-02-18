@@ -12,9 +12,10 @@ Office.onReady((info) => {
   if (info.host === Office.HostType.Word) {
     // Assign event handlers and other initialization logic.
     document.getElementById("test-btn").onclick = testmsg;
-    document.getElementById("sideload-msg").style.display = "none";
+    // document.getElementById("test-btn").onmousedown = testmsg;
+    /*document.getElementById("sideload-msg").style.display = "none";
     document.getElementById("app-body").style.display = "flex";
-    /*document.getElementById("add-style").onclick = () => tryCatch(addStyle);
+    document.getElementById("add-style").onclick = () => tryCatch(addStyle);
     document.getElementById("count").onclick = () => tryCatch(getCount);
     document.getElementById("add-style-list").onclick = () => tryCatch(addStyleList);
     document.getElementById("apply-style").onclick = () => tryCatch(applyStyle);
@@ -57,9 +58,13 @@ Office.actions.associate("placeholder", placeholder);
 // Example function for ribbon buttons
 async function test(event) {
   await Word.run(async (context) => {
-    const docBody = context.document.body;
-    // Print "WARNING"
-    docBody.insertParagraph("WARNING", Word.InsertLocation.start);
+    let selection = context.document.getSelection(); // Get cursor location or highlighted text
+    context.load(selection)
+    await context.sync(); // Wait for Word to return the selection
+    // Print "WARNING" at end of cursor/highlight location
+    selection.insertText("WARNING", Word.InsertLocation.end);
+    // Set color to red
+    selection.font.color = "red";
     await context.sync();
   });
   event.completed();
@@ -69,11 +74,9 @@ Office.actions.associate("test", test);
 // Example function for taskpane buttons
 async function testmsg() {
   await Word.run(async (context) => {
-    const docBody = context.document.body;
-    // Print "Test."
-    docBody.insertParagraph("Test.", Word.InsertLocation.start);
-    // Set color to blue
-    docBody.font.color = "blue";
+    const body = context.document.body; // Get the entire document body
+    // Print "Test." at the start of the document
+    body.insertParagraph("Test.", Word.InsertLocation.start);
     await context.sync();
   });
 }
