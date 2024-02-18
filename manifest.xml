@@ -383,7 +383,7 @@
                   -->
                   <Action xsi:type="ExecuteFunction">
                     <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>placeholder</FunctionName>
+                    <FunctionName>note</FunctionName>
                   </Action>
                 </Control>
 
@@ -409,7 +409,7 @@
                   -->
                   <Action xsi:type="ExecuteFunction">
                     <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>placeholder</FunctionName>
+                    <FunctionName>caution</FunctionName>
                   </Action>
                 </Control>
 
@@ -435,7 +435,7 @@
                   -->
                   <Action xsi:type="ExecuteFunction">
                     <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>test</FunctionName>
+                    <FunctionName>warning</FunctionName>
                   </Action>
                 </Control>
               <!--TODO Add Menus or Controls here-->

@@ -81,6 +81,72 @@ async function testmsg() {
   });
 }
 
+// Inserts a Note template into the document
+async function note(event) {
+  await Word.run(async (context) => {
+    let selection = context.document.getSelection(); // Get cursor location or highlighted text
+    context.load(selection)
+    await context.sync(); // Wait for Word to return the selection
+    selection.insertBreak("Line", "After"); // Line Break
+    const box = selection.insertTable(1, 1, "After"); // Insert 1x1 table for border
+    box.getBorder(Word.BorderLocation.outside).type = "Single"; // Set border style to single
+    box.getBorder(Word.BorderLocation.all).width = 1; // Thicken the border to 1pt
+    const head = box.getRange("Start").insertParagraph("NOTE", "After"); // Add head
+    // Format head
+    head.alignment = "Centered";
+    head.font.bold = true;
+    const desc = head.getRange("After").insertText("Type here.", "Start"); // Add description after head
+    selection.insertBreak("Line", "After"); // Line Break
+    await context.sync();
+  });
+  event.completed();
+}
+Office.actions.associate("note", note);
+
+// Inserts a Caution template into the document
+async function caution(event) {
+  await Word.run(async (context) => {
+    let selection = context.document.getSelection(); // Get cursor location or highlighted text
+    context.load(selection)
+    await context.sync(); // Wait for Word to return the selection
+    selection.insertBreak("Line", "After"); // Line Break
+    const box = selection.insertTable(1, 1, "After"); // Insert 1x1 table for border
+    box.getBorder(Word.BorderLocation.outside).type = "Double"; // Set border style to single
+    box.getBorder(Word.BorderLocation.all).width = 1; // Thicken the border to 1pt
+    const head = box.getRange("Start").insertParagraph("CAUTION", "After"); // Add head
+    // Format head
+    head.alignment = "Centered";
+    head.font.bold = true;
+    const desc = head.getRange("After").insertText("Type here.", "Start"); // Add description after head
+    selection.insertBreak("Line", "After"); // Line Break
+    await context.sync();
+  });
+  event.completed();
+}
+Office.actions.associate("caution", caution);
+
+// Inserts a Warning template into the document
+async function warning(event) {
+  await Word.run(async (context) => {
+    let selection = context.document.getSelection(); // Get cursor location or highlighted text
+    context.load(selection)
+    await context.sync(); // Wait for Word to return the selection
+    selection.insertBreak("Line", "After"); // Line Break
+    const box = selection.insertTable(1, 1, "After"); // Insert 1x1 table for border
+    box.getBorder(Word.BorderLocation.outside).type = "Triple"; // Set border style to single
+    box.getBorder(Word.BorderLocation.all).width = 1; // Thicken the border to 1pt
+    const head = box.getRange("Start").insertParagraph("WARNING", "After"); // Add head
+    // Format head
+    head.alignment = "Centered";
+    head.font.bold = true;
+    const desc = head.getRange("After").insertText("Type here.", "Start"); // Add description after head
+    selection.insertBreak("Line", "After"); // Line Break
+    await context.sync();
+  });
+  event.completed();
+}
+Office.actions.associate("warning", warning);
+
 /** Default helper for invoking an action and handling errors. */
 /*async function tryCatch(callback) {
   try {
@@ -170,7 +236,7 @@ function addStyleList() {
     //paragraph characteristics
     const leftIndent = value.leftIndent;
 
-    //font characeristics
+    //font characteristics
     const fontColor = value.fontColor;
     const fontSize = value.fontSize;
     //document.getElementById("style-buttons").innerHTML = newStyleName;
