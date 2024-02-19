@@ -12,6 +12,7 @@ Office.onReady((info) => {
   if (info.host === Office.HostType.Word) {
     // Assign event handlers and other initialization logic.
     document.getElementById("test-btn").onclick = testmsg;
+    document.getElementById("header-btn").onclick = createHeader;
     // document.getElementById("test-btn").onmousedown = testmsg;
     /*document.getElementById("sideload-msg").style.display = "none";
     document.getElementById("app-body").style.display = "flex";
@@ -164,6 +165,38 @@ async function beginBullet(event) {
 }
 Office.actions.associate("beginBullet", beginBullet);
 
+async function createHeader() {
+  await Word.run(async (context) => {
+    const sections = context.document.sections;
+    sections.load("items");
+    await context.sync();
+
+    if (sections.items.length > 0) {
+      const firstSection = sections.items[0];
+      const header = firstSection.getHeader("primary");
+
+      // Clear existing content in the header
+      header.clear();
+      await context.sync();
+
+      // Insert a table into the header
+      const table = header.insertTable(1, 3, "start", [
+        ["Procedure #", "Procedure Title", "Revision #\n"]
+      ]);
+ 
+      await context.sync();
+
+      // Set table style if needed
+      table.font.bold = true;
+      table.getCell(0, 1).horizontalAlignment = "Centered";
+      table.getCell(0, 1).getBorder(Word.BorderLocation.right).type = "None";
+      table.getCell(0, 1).getBorder(Word.BorderLocation.left).type = "None";
+      table.getCell(0, 2).horizontalAlignment = "Right";
+      //table.getCell(0, 2).insertParagraph("").inserText("Page ").insertField("PAGE").insertText(" of ").insertField("NUMPAGES");
+      await context.sync();
+    }
+  });
+}
 /** Default helper for invoking an action and handling errors. */
 /*async function tryCatch(callback) {
   try {

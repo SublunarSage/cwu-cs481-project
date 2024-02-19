@@ -75,7 +75,7 @@
                   <bt:Image size="80" resid="Opertools.Icon.80"/>
                 </Icon>
 
-                <!--Button, Menu, or MobileButton (mail only)-->
+                <!--Button or Menu-->
                 <Control xsi:type="Button" id="TaskpaneButton">
                   <Label resid="TaskpaneButton.Label"/>
 
@@ -112,19 +112,13 @@
                   <Label resid="Option1.Label"/>
 
                   <!--
-                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
-                    Change all occurrences of each resid to something that makes sense for your project    
+                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed  
                   -->
                   <Supertip>
                     <Title resid="Placeholder.Supertip.Label"/>
                     <Description resid="Placeholder.Supertip.Desc"/>
                   </Supertip>
 
-                  <!--
-                    Controls require their own icons sets too 
-                    Change all occurrences of each resid to something that makes sense for your project
-                    Change the resource references for each icon to the location you store them
-                  -->
                   <Icon>
                     <bt:Image size="16" resid="Option1.Icon.16"/>
                     <bt:Image size="32" resid="Option1.Icon.32"/>
@@ -133,36 +127,24 @@
 
                   <!--
                     Actions come in two flavors - ExecuteFunction or ShowTaskpane
-                    Keep one of the following <Action> elements and delete the other
-                    ShowTaskPane open
                   -->
-
-                  <!--OR THIS ONE-->
                   <Action xsi:type="ExecuteFunction">
                     <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>setStyleSectionHeader</FunctionName>
+                    <FunctionName>placeholder</FunctionName>
                   </Action>
-
-                  <!--Now that you've got all that done, move down to the resources section-->
                 </Control>
 
                 <Control xsi:type="Button" id="Placeholder-2">
                   <Label resid="Option2.Label"/>
 
                   <!--
-                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
-                    Change all occurrences of each resid to something that makes sense for your project    
+                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed  
                   -->
                   <Supertip>
                     <Title resid="Placeholder.Supertip.Label"/>
                     <Description resid="Placeholder.Supertip.Desc"/>
                   </Supertip>
 
-                  <!--
-                    Controls require their own icons sets too 
-                    Change all occurrences of each resid to something that makes sense for your project
-                    Change the resource references for each icon to the location you store them
-                  -->
                   <Icon>
                     <bt:Image size="16" resid="Option2.Icon.16"/>
                     <bt:Image size="32" resid="Option2.Icon.32"/>
@@ -171,17 +153,11 @@
 
                   <!--
                     Actions come in two flavors - ExecuteFunction or ShowTaskpane
-                    Keep one of the following <Action> elements and delete the other
-                    ShowTaskPane open
                   -->
-
-                  <!--OR THIS ONE-->
                   <Action xsi:type="ExecuteFunction">
                     <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>setStyleSectionHeader</FunctionName>
+                    <FunctionName>placeholder</FunctionName>
                   </Action>
-
-                  <!--Now that you've got all that done, move down to the resources section-->
                 </Control>
               <!--TODO Add Menus or Controls here-->
 
@@ -200,19 +176,13 @@
                   <Label resid="Placeholder.Label"/>
 
                   <!--
-                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
-                    Change all occurrences of each resid to something that makes sense for your project    
+                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed  
                   -->
                   <Supertip>
                     <Title resid="Placeholder.Supertip.Label"/>
                     <Description resid="Placeholder.Supertip.Desc"/>
                   </Supertip>
 
-                  <!--
-                    Controls require their own icons sets too 
-                    Change all occurrences of each resid to something that makes sense for your project
-                    Change the resource references for each icon to the location you store them
-                  -->
                   <Icon>
                     <bt:Image size="16" resid="Format.Icon.16"/>
                     <bt:Image size="32" resid="Format.Icon.32"/>
@@ -221,17 +191,11 @@
 
                   <!--
                     Actions come in two flavors - ExecuteFunction or ShowTaskpane
-                    Keep one of the following <Action> elements and delete the other
-                    ShowTaskPane open
                   -->
-
-                  <!--OR THIS ONE-->
                   <Action xsi:type="ExecuteFunction">
                     <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>setStyleSectionHeader</FunctionName>
+                    <FunctionName>placeholder</FunctionName>
                   </Action>
-
-                  <!--Now that you've got all that done, move down to the resources section-->
                 </Control>
               <!--TODO Add Menus or Controls here-->
 
@@ -250,19 +214,13 @@
                   <Label resid="Placeholder.Label"/>
 
                   <!--
-                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
-                    Change all occurrences of each resid to something that makes sense for your project    
+                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed  
                   -->
                   <Supertip>
                     <Title resid="Placeholder.Supertip.Label"/>
                     <Description resid="Placeholder.Supertip.Desc"/>
                   </Supertip>
 
-                  <!--
-                    Controls require their own icons sets too 
-                    Change all occurrences of each resid to something that makes sense for your project
-                    Change the resource references for each icon to the location you store them
-                  -->
                   <Icon>
                     <bt:Image size="16" resid="Attach.Icon.16"/>
                     <bt:Image size="32" resid="Attach.Icon.32"/>
@@ -271,17 +229,11 @@
 
                   <!--
                     Actions come in two flavors - ExecuteFunction or ShowTaskpane
-                    Keep one of the following <Action> elements and delete the other
-                    ShowTaskPane open
                   -->
-
-                  <!--OR THIS ONE-->
                   <Action xsi:type="ExecuteFunction">
                     <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>setStyleSectionHeader</FunctionName>
+                    <FunctionName>placeholder</FunctionName>
                   </Action>
-
-                  <!--Now that you've got all that done, move down to the resources section-->
                 </Control>
               <!--TODO Add Menus or Controls here-->
 
@@ -300,19 +252,13 @@
                   <Label resid="Placeholder.Label"/>
 
                   <!--
-                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
-                    Change all occurrences of each resid to something that makes sense for your project    
+                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed  
                   -->
                   <Supertip>
                     <Title resid="Placeholder.Supertip.Label"/>
                     <Description resid="Placeholder.Supertip.Desc"/>
                   </Supertip>
 
-                  <!--
-                    Controls require their own icons sets too 
-                    Change all occurrences of each resid to something that makes sense for your project
-                    Change the resource references for each icon to the location you store them
-                  -->
                   <Icon>
                     <bt:Image size="16" resid="Number.Icon.16"/>
                     <bt:Image size="32" resid="Number.Icon.32"/>
@@ -321,17 +267,11 @@
 
                   <!--
                     Actions come in two flavors - ExecuteFunction or ShowTaskpane
-                    Keep one of the following <Action> elements and delete the other
-                    ShowTaskPane open
                   -->
-
-                  <!--OR THIS ONE-->
                   <Action xsi:type="ExecuteFunction">
                     <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>setStyleSectionHeader</FunctionName>
+                    <FunctionName>placeholder</FunctionName>
                   </Action>
-
-                  <!--Now that you've got all that done, move down to the resources section-->
                 </Control>
               <!--TODO Add Menus or Controls here-->
 
@@ -350,19 +290,13 @@
                   <Label resid="Placeholder.Label"/>
 
                   <!--
-                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
-                    Change all occurrences of each resid to something that makes sense for your project    
+                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed  
                   -->
                   <Supertip>
                     <Title resid="Placeholder.Supertip.Label"/>
                     <Description resid="Placeholder.Supertip.Desc"/>
                   </Supertip>
 
-                  <!--
-                    Controls require their own icons sets too 
-                    Change all occurrences of each resid to something that makes sense for your project
-                    Change the resource references for each icon to the location you store them
-                  -->
                   <Icon>
                     <bt:Image size="16" resid="Bullet.Icon.16"/>
                     <bt:Image size="32" resid="Bullet.Icon.32"/>
@@ -371,17 +305,11 @@
 
                   <!--
                     Actions come in two flavors - ExecuteFunction or ShowTaskpane
-                    Keep one of the following <Action> elements and delete the other
-                    ShowTaskPane open
                   -->
-
-                  <!--OR THIS ONE-->
                   <Action xsi:type="ExecuteFunction">
                     <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>setStyleSectionHeader</FunctionName>
+                    <FunctionName>placeholder</FunctionName>
                   </Action>
-
-                  <!--Now that you've got all that done, move down to the resources section-->
                 </Control>
               <!--TODO Add Menus or Controls here-->
 
@@ -400,19 +328,13 @@
                   <Label resid="Placeholder.Label"/>
 
                   <!--
-                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
-                    Change all occurrences of each resid to something that makes sense for your project    
+                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed  
                   -->
                   <Supertip>
                     <Title resid="Placeholder.Supertip.Label"/>
                     <Description resid="Placeholder.Supertip.Desc"/>
                   </Supertip>
 
-                  <!--
-                    Controls require their own icons sets too 
-                    Change all occurrences of each resid to something that makes sense for your project
-                    Change the resource references for each icon to the location you store them
-                  -->
                   <Icon>
                     <bt:Image size="16" resid="Plain.Icon.16"/>
                     <bt:Image size="32" resid="Plain.Icon.32"/>
@@ -421,17 +343,11 @@
 
                   <!--
                     Actions come in two flavors - ExecuteFunction or ShowTaskpane
-                    Keep one of the following <Action> elements and delete the other
-                    ShowTaskPane open
                   -->
-
-                  <!--OR THIS ONE-->
                   <Action xsi:type="ExecuteFunction">
                     <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>setStyleSectionHeader</FunctionName>
+                    <FunctionName>placeholder</FunctionName>
                   </Action>
-
-                  <!--Now that you've got all that done, move down to the resources section-->
                 </Control>
               <!--TODO Add Menus or Controls here-->
 
@@ -450,57 +366,38 @@
                   <Label resid="Note.Label"/>
 
                   <!--
-                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
-                    Change all occurrences of each resid to something that makes sense for your project    
+                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed  
                   -->
                   <Supertip>
                     <Title resid="Note.Supertip.Label"/>
                     <Description resid="Note.Supertip.Desc"/>
                   </Supertip>
 
-                  <!--
-                    Controls require their own icons sets too 
-                    Change all occurrences of each resid to something that makes sense for your project
-                    Change the resource references for each icon to the location you store them
-                  -->
                   <Icon>
                     <bt:Image size="16" resid="Note.Icon.16"/>
                     <bt:Image size="32" resid="Note.Icon.32"/>
                     <bt:Image size="80" resid="Note.Icon.80"/>
                   </Icon>
-
                   <!--
                     Actions come in two flavors - ExecuteFunction or ShowTaskpane
-                    Keep one of the following <Action> elements and delete the other
-                    ShowTaskPane open
                   -->
-
-                  <!--OR THIS ONE-->
                   <Action xsi:type="ExecuteFunction">
                     <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>setStyleSectionHeader</FunctionName>
+                    <FunctionName>note</FunctionName>
                   </Action>
-
-                  <!--Now that you've got all that done, move down to the resources section-->
                 </Control>
 
                 <Control xsi:type="Button" id="CautionButton">
                   <Label resid="Caution.Label"/>
 
                   <!--
-                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
-                    Change all occurrences of each resid to something that makes sense for your project    
+                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed  
                   -->
                   <Supertip>
                     <Title resid="Caution.Supertip.Label"/>
                     <Description resid="Caution.Supertip.Desc"/>
                   </Supertip>
 
-                  <!--
-                    Controls require their own icons sets too 
-                    Change all occurrences of each resid to something that makes sense for your project
-                    Change the resource references for each icon to the location you store them
-                  -->
                   <Icon>
                     <bt:Image size="16" resid="Caution.Icon.16"/>
                     <bt:Image size="32" resid="Caution.Icon.32"/>
@@ -509,36 +406,24 @@
 
                   <!--
                     Actions come in two flavors - ExecuteFunction or ShowTaskpane
-                    Keep one of the following <Action> elements and delete the other
-                    ShowTaskPane open
                   -->
-
-                  <!--OR THIS ONE-->
                   <Action xsi:type="ExecuteFunction">
                     <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>setStyleSectionHeader</FunctionName>
+                    <FunctionName>caution</FunctionName>
                   </Action>
-
-                  <!--Now that you've got all that done, move down to the resources section-->
                 </Control>
 
                 <Control xsi:type="Button" id="WarningButton">
                   <Label resid="Warning.Label"/>
 
                   <!--
-                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed
-                    Change all occurrences of each resid to something that makes sense for your project    
+                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed  
                   -->
                   <Supertip>
                     <Title resid="Warning.Supertip.Label"/>
                     <Description resid="Warning.Supertip.Desc"/>
                   </Supertip>
 
-                  <!--
-                    Controls require their own icons sets too 
-                    Change all occurrences of each resid to something that makes sense for your project
-                    Change the resource references for each icon to the location you store them
-                  -->
                   <Icon>
                     <bt:Image size="16" resid="Warning.Icon.16"/>
                     <bt:Image size="32" resid="Warning.Icon.32"/>
@@ -547,17 +432,11 @@
 
                   <!--
                     Actions come in two flavors - ExecuteFunction or ShowTaskpane
-                    Keep one of the following <Action> elements and delete the other
-                    ShowTaskPane open
                   -->
-
-                  <!--OR THIS ONE-->
                   <Action xsi:type="ExecuteFunction">
                     <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>setStyleSectionHeader</FunctionName>
+                    <FunctionName>warning</FunctionName>
                   </Action>
-
-                  <!--Now that you've got all that done, move down to the resources section-->
                 </Control>
               <!--TODO Add Menus or Controls here-->
 
