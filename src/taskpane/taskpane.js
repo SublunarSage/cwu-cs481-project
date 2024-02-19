@@ -147,6 +147,23 @@ async function warning(event) {
 }
 Office.actions.associate("warning", warning);
 
+async function beginBullet(event) {
+  await Word.run(async (context) => {
+    let selection = context.document.getSelection().paragraphs; // Get cursor location or highlighted text
+    context.load(selection)
+    await context.sync(); // Wait for Word to return the selection
+
+    if(!selection.items[0].isListItem) {
+      const list = selection.items[0].startNewList();
+      list.load("$none");
+      await context.sync();
+    }
+
+  });
+  event.completed();
+}
+Office.actions.associate("beginBullet", beginBullet);
+
 /** Default helper for invoking an action and handling errors. */
 /*async function tryCatch(callback) {
   try {
