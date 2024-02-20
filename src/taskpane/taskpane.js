@@ -13,6 +13,7 @@ Office.onReady((info) => {
     // Assign event handlers and other initialization logic.
     document.getElementById("test-btn").onclick = testmsg;
     document.getElementById("header-btn").onclick = createHeader;
+    document.getElementById("cover-btn").onclick = insertCoverPage;
     // document.getElementById("test-btn").onmousedown = testmsg;
     /*document.getElementById("sideload-msg").style.display = "none";
     document.getElementById("app-body").style.display = "flex";
@@ -165,6 +166,7 @@ async function beginBullet(event) {
 }
 Office.actions.associate("beginBullet", beginBullet);
 
+//Inserts preformatted header 
 async function createHeader() {
   await Word.run(async (context) => {
     const sections = context.document.sections;
@@ -195,6 +197,41 @@ async function createHeader() {
       //table.getCell(0, 2).insertParagraph("").inserText("Page ").insertField("PAGE").insertText(" of ").insertField("NUMPAGES");
       await context.sync();
     }
+  });
+}
+// Function to insert a cover page at the beginning of the document
+function insertCoverPage() {
+  Word.run(function (context) {
+      // Define your cover page content
+      var coverPageContent = `
+      <div style="text-align: center; font-family: Arial; font-size: 12pt; line-height: 1;">
+          <p style="font-weight: bold; margin-bottom: 0.5em;">[Procedure Title]</p>
+          <p style="font-weight: bold; margin-bottom: 0.5em;">[Procedure Number]</p>
+          <p style="font-weight: bold; margin-bottom: 1.5em;">[Reactivity Statement]</p> <br>
+          <p style="margin-bottom: 0.5em;">Revision #</p>
+          <p style="margin-bottom: 0.5em;">[Safety or Quality Classification]</p>
+          <p style="margin-bottom: 1.5em;">Level of Use: </p> 
+          <br><br><br>
+          <!-- Additional Information (optional) -->
+          <p style="margin-bottom: 0.5em;">Effective Date: </p>
+          <p style="margin-bottom: 0;">Responsible Organization: </p>
+          <p style="margin-bottom: 0.5em;">Prepared By: </p>
+          <p style="margin-bottom: 0.5em;">Approved By: </p>
+          <br>
+      </div>
+      `;
+
+
+      // Insert the cover page content at the beginning of the document
+      context.document.body.insertHtml(coverPageContent, "start");
+
+      return context.sync();
+  })
+  .catch(function (error) {
+      console.log("Error: " + error.message);
+      if (error instanceof OfficeExtension.Error) {
+          console.log("Debug info: " + JSON.stringify(error.debugInfo));
+      }
   });
 }
 /** Default helper for invoking an action and handling errors. */
