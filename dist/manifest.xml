@@ -308,7 +308,7 @@
                   -->
                   <Action xsi:type="ExecuteFunction">
                     <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>placeholder</FunctionName>
+                    <FunctionName>beginBullet</FunctionName>
                   </Action>
                 </Control>
               <!--TODO Add Menus or Controls here-->
