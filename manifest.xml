@@ -270,7 +270,7 @@
                   -->
                   <Action xsi:type="ExecuteFunction">
                     <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>placeholder</FunctionName>
+                    <FunctionName>beginNumber</FunctionName>
                   </Action>
                 </Control>
               <!--TODO Add Menus or Controls here-->

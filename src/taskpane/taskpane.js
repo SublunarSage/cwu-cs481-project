@@ -166,6 +166,34 @@ async function beginBullet(event) {
 }
 Office.actions.associate("beginBullet", beginBullet);
 
+async function beginNumber(event) {
+  await Word.run(async (context) => {
+    let selection = context.document.getSelection().paragraphs; // Get cursor location or highlighted text
+    context.load(selection)
+    await context.sync(); // Wait for Word to return the selection
+
+    if(!selection.items[0].isListItem) {
+      const list = selection.items[0].startNewList();
+      list.load("$none");
+      await context.sync();
+
+      let level = 0;
+      list.setLevelNumbering(0, Word.ListNumbering.arabic, [level, "."]);
+      list.setLevelStartingNumber(0, 1);
+      
+      level += 1;
+      list.setLevelNumbering(1, "LowerLetter", [level, "."]);
+      list.setLevelStartingNumber(1, 1);
+
+      list.load("levelTypes");
+      await context.sync();
+    }
+
+  });
+  event.completed();
+}
+Office.actions.associate("beginNumber", beginNumber);
+
 //Inserts preformatted header 
 async function createHeader() {
   await Word.run(async (context) => {
