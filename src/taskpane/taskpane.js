@@ -83,6 +83,38 @@ async function testmsg() {
   });
 }
 
+// Function to insert an attachment placeholder at the current selection (mouse cursor) position
+async function insertAttachment(event) {
+  try {
+    await Word.run(async (context) => {
+      const body = context.document.body;
+      const contentControls = body.contentControls;
+      contentControls.load("items"); // Load the items property of the contentControls collection
+      await context.sync();
+
+      const figureCount = contentControls.items.length + 1;
+      const attachmentPlace = context.document.getSelection().insertContentControl();
+      attachmentPlace.title = "Attachment";
+     
+      const paragraph = attachmentPlace.insertParagraph("Figure " + figureCount + ", [Figure Title]", "After");
+      paragraph.font.name = "Arial"; // Set font to Arial
+      paragraph.font.size = 12; // Set font size to 12
+
+      await context.sync();
+    });
+    event.completed();
+  } catch (error) {
+    console.error("Error occurred:", error);
+    event.completed({ error: "An error occurred while inserting the attachment." });
+  }
+}
+
+// Register the function with Office actions
+Office.actions.associate("insertAttachment", insertAttachment);
+
+
+
+
 // Inserts a Note template into the document
 async function note(event) {
   await Word.run(async (context) => {
@@ -230,7 +262,7 @@ async function createHeader() {
 // Function to insert a cover page at the beginning of the document
 function insertCoverPage() {
   Word.run(function (context) {
-      // Define your cover page content
+      // Cover page content
       var coverPageContent = `
       <div style="text-align: center; font-family: Arial; font-size: 12pt; line-height: 1;">
           <p style="font-weight: bold; margin-bottom: 0.5em;">[Procedure Title]</p>
