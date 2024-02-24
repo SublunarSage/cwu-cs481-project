@@ -34,17 +34,31 @@
     <link rel="shortcut icon" href="#">
 </head>
 
+<!--Body controls the appearance of the background-->
 <body class="ms-font-m ms-welcome ms-Fabric ms-bgColor-neutralLighter">
-     <header class="ms-welcome__header">
+    <header class="ms-welcome__header">
         <img width="180" height="150" src="../../assets/Maggie.jpg" alt="Maggie" title="Maggie" />
         <h1 class="ms-font-su">Welcome</h1>
     </header>
     <main id="app-body" class="ms-welcome__main">
-        <!--Test Button-->
-        <button class="ms-Button" id="test-btn">Test Button</button><br/><br/>
+        <!--
+        Test Button
+        <button class="ms-Button" id="test-btn">Test Button</button>
+        -->
+        <!--Header Button-->
+        <button class="ms-Button" id="header-btn">
+            <span class="ms-Button-label">Create Header</span>
+        </button>
+        <!--Cover Page Button-->
+        <br/>
+        <button class="ms-Button" id="cover-btn">
+            <span class="ms-Button-label">Create Cover Page</span>
+        </button>
     </main>
-     
+
+<!--
     <section class="samples ms-font-m">
+    
         <p>
             <h4>Get current number of styles</h4>
             <button id="count" class="ms-Button">
@@ -53,7 +67,8 @@
             <p id="count-output"></p>
         </p>
     
-<!--         <h4>Add a new style</h4>
+    
+        <h4>Add a new style</h4>
         <div>Name the style using letters. Can include digits. Examples: NewName, newname1</div>
         <p>
             <label style="margin-left: 20px">Name:</label>
@@ -66,24 +81,26 @@
         <option>Character</option>  
         <option>List</option>  
         <option>Table</option>
-      </select>
-        <p /> -->
-      <button id="add-style" class="ms-Button">
-        <span class="ms-Button-label">Add style</span>
-      </button>
-      <button id="add-style-list" class="ms-Button">
-        <span class="ms-Button-label">Add style list</span>
-      </button>
-    
-    <h4>Use custom style</h4>
-<!--             <label style="margin-left: 20px">Style name:</label>
-            <input id="style-name-to-use"/>
-            <p />
-            <button id="properties" class="ms-Button">
-          <span class="ms-Button-label">Get properties</span>
+        </select>
+        <p />
+
+        <button id="add-style" class="ms-Button">
+            <span class="ms-Button-label">Add style</span>
         </button>
-            <p />
- -->            
+        <button id="add-style-list" class="ms-Button">
+            <span class="ms-Button-label">Add style list</span>
+        </button>
+    
+        <h4>Use custom style</h4>
+
+        <label style="margin-left: 20px">Style name:</label>
+        <input id="style-name-to-use"/>
+        <p />
+        <button id="properties" class="ms-Button">
+            <span class="ms-Button-label">Get properties</span>
+        </button>
+        <p />
+
         <button id="apply-style" class="ms-Button">
             <span class="ms-Button-label">Apply style to paragraph</span>
         </button>
@@ -107,55 +124,47 @@
         <button id="update-document-details" class="ms-Button">
             <span class="ms-Button-label">Update Document Details</span>
         </button>
-
-        <button id="header-btn" class="ms-Button">
-            <span class="ms-Button-label">Create Header</span>
-        </button>
-
-        <button id="cover-btn" class="ms-Button">
-            <span class="ms-Button-label">Create Cover Page</span>
-        </button>
-
+    
         <button id="create-header-json" class="ms-Button">
             <span class="ms-Button-label">Create Header from JSON</span>
         </button>
 
-      <div id="style-buttons"></div>
+        <div id="style-buttons"></div>
 
-<!--             <h4>Update custom style</h4>
-            <label style="margin-left: 20px">Style name:</label>
-            <input id="style-name"/>
-            <p />
-            <div>Set font color to red and font size to 20.</div>
-            <button id="font-properties" class="ms-Button">
+        <h4>Update custom style</h4>
+        <label style="margin-left: 20px">Style name:</label>
+        <input id="style-name"/>
+        <p />
+        <div>Set font color to red and font size to 20.</div>
+        <button id="font-properties" class="ms-Button">
         <span class="ms-Button-label">Set font properties</span>
-      </button>
-            <p />
-            <div>Set paragraph left indent size to 30 and alignment to center.</div>
-            <button id="paragraph-format" class="ms-Button">
+        </button>
+        <p />
+        <div>Set paragraph left indent size to 30 and alignment to center.</div>
+        <button id="paragraph-format" class="ms-Button">
         <span class="ms-Button-label">Set paragraph format</span>
-      </button>
+        </button>
     
-            <h4>Delete custom style</h4>
-            <p>
-                <label style="margin-left: 20px">Style name:</label>
-                <input id="style-name-to-delete"/>
-                <button id="delete-style" class="ms-Button">
-          <span class="ms-Button-label">Delete style</span>
-          </button>
-            </p>
-            <h4>Get style info from external document</h4>
-            <p>Select a Word document to get its style info.</p>
-            <form>
-                <input type="file" id="file" />
-            </form>
-                <br>
-                <p>Get style info from the selected document.</p>
-                <button id="get-external-styles" class="ms-Button">
-                  <span class="ms-Button-label">Get styles</span>
-                </button>
- -->                
+        <h4>Delete custom style</h4>
+        <p>
+        <label style="margin-left: 20px">Style name:</label>
+        <input id="style-name-to-delete"/>
+        <button id="delete-style" class="ms-Button">
+        <span class="ms-Button-label">Delete style</span>
+        </button>
+        </p>
+        <h4>Get style info from external document</h4>
+        <p>Select a Word document to get its style info.</p>
+        <form>
+            <input type="file" id="file" />
+        </form>
+        <br>
+        <p>Get style info from the selected document.</p>
+        <button id="get-external-styles" class="ms-Button">
+            <span class="ms-Button-label">Get styles</span>
+        </button>
     </section>
+-->
 </body>
 
 </html>

@@ -11,7 +11,7 @@
 Office.onReady((info) => {
   if (info.host === Office.HostType.Word) {
     // Assign event handlers and other initialization logic.
-    document.getElementById("test-btn").onclick = testmsg;
+    // document.getElementById("test-btn").onclick = testmsg;
     document.getElementById("header-btn").onclick = createHeader;
     document.getElementById("cover-btn").onclick = insertCoverPage;
     // document.getElementById("test-btn").onmousedown = testmsg;
@@ -111,8 +111,6 @@ async function insertAttachment(event) {
 
 // Register the function with Office actions
 Office.actions.associate("insertAttachment", insertAttachment);
-
-
 
 
 // Inserts a Note template into the document
@@ -277,6 +275,9 @@ function insertCoverPage() {
           <p style="margin-bottom: 0;">Responsible Organization: </p>
           <p style="margin-bottom: 0.5em;">Prepared By: </p>
           <p style="margin-bottom: 0.5em;">Approved By: </p>
+          <br>
+      </div>
+      <div style="page-break-after: always;">
           <br>
       </div>
       `;
