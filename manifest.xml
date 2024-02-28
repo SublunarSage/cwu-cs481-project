@@ -210,15 +210,15 @@
                 <bt:Image size="32" resid="Placeholder.Icon.32"/>
                 <bt:Image size="80" resid="Placeholder.Icon.80"/>
               </Icon>
-                <Control xsi:type="Button" id="Placeholder3">
-                  <Label resid="Placeholder.Label"/>
+                <Control xsi:type="Button" id="AttachmentButton">
+                  <Label resid="Attachments.Label"/>
 
                   <!--
                     Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed  
                   -->
                   <Supertip>
-                    <Title resid="Placeholder.Supertip.Label"/>
-                    <Description resid="Placeholder.Supertip.Desc"/>
+                    <Title resid="Attachments.Supertip.Label"/>
+                    <Description resid="Attachments.Supertip.Desc"/>
                   </Supertip>
 
                   <Icon>
@@ -248,15 +248,15 @@
                 <bt:Image size="32" resid="Placeholder.Icon.32"/>
                 <bt:Image size="80" resid="Placeholder.Icon.80"/>
               </Icon>
-                <Control xsi:type="Button" id="Placeholder4">
-                  <Label resid="Placeholder.Label"/>
+                <Control xsi:type="Button" id="IndexedList">
+                  <Label resid="StepNumbering.Label"/>
 
                   <!--
                     Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed  
                   -->
                   <Supertip>
-                    <Title resid="Placeholder.Supertip.Label"/>
-                    <Description resid="Placeholder.Supertip.Desc"/>
+                    <Title resid="StepNumbering.Supertip.Label"/>
+                    <Description resid="StepNumbering.Supertip.Desc"/>
                   </Supertip>
 
                   <Icon>
@@ -286,15 +286,15 @@
                 <bt:Image size="32" resid="Placeholder.Icon.32"/>
                 <bt:Image size="80" resid="Placeholder.Icon.80"/>
               </Icon>
-                <Control xsi:type="Button" id="Placeholder5">
-                  <Label resid="Placeholder.Label"/>
+                <Control xsi:type="Button" id="BulletButton">
+                  <Label resid="BulletedList.Label"/>
 
                   <!--
                     Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed  
                   -->
                   <Supertip>
-                    <Title resid="Placeholder.Supertip.Label"/>
-                    <Description resid="Placeholder.Supertip.Desc"/>
+                    <Title resid="BulletedList.Supertip.Label"/>
+                    <Description resid="BulletedList.Supertip.Desc"/>
                   </Supertip>
 
                   <Icon>
@@ -534,10 +534,16 @@
         <bt:String id="OT-FormattingGroup.Label" DefaultValue="Formatting"/>
 
         <bt:String id="OT-AttachmentsGroup.Label" DefaultValue="Attachments"/>
+        <bt:String id="Attachments.Label" DefaultValue="Add Attachment"/>
+        <bt:String id="Attachments.Supertip.Label" DefaultValue="Add Attachment"/> 
 
         <bt:String id="OT-StepNumberGroup.Label" DefaultValue="Step Numbering"/>
+        <bt:String id="StepNumbering.Label" DefaultValue="Indexed List"/>
+        <bt:String id="StepNumbering.Supertip.Label" DefaultValue="Indexed List"/> 
 
         <bt:String id="OT-BulletGroup.Label" DefaultValue="Bulleting"/>
+        <bt:String id="BulletedList.Label" DefaultValue="Bulleted List"/>
+        <bt:String id="BulletedList.Supertip.Label" DefaultValue="Bulleted List"/> 
 
         <bt:String id="OT-PlainTextGroup.Label" DefaultValue="Plain Text"/>
 
@@ -555,6 +561,12 @@
         <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to show the Taskpane"/>
 
         <bt:String id="Placeholder.Supertip.Desc" DefaultValue="This is a description of this control."/>
+
+        <bt:String id="Attachments.Supertip.Desc" DefaultValue="Add an attachment."/>
+
+        <bt:String id="StepNumbering.Supertip.Desc" DefaultValue="Add an indexed list."/>
+
+        <bt:String id="BulletedList.Supertip.Desc" DefaultValue="Add a dotted list."/>
 
         <bt:String id="Note.Supertip.Desc" DefaultValue="Add a note."/>
         <bt:String id="Caution.Supertip.Desc" DefaultValue="Add a caution."/>
