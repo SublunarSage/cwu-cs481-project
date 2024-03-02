@@ -99,108 +99,6 @@
                 </Control>
               </Group>
 
-              <!--Templates Group-->
-
-              <Group id="TemplatesGroup">
-              <Label resid="OT-TemplatesGroup.Label"/>
-              <Icon>
-                <bt:Image size="16" resid="Placeholder.Icon.16"/>
-                <bt:Image size="32" resid="Placeholder.Icon.32"/>
-                <bt:Image size="80" resid="Placeholder.Icon.80"/>
-              </Icon>
-                <Control xsi:type="Button" id="Placeholder">
-                  <Label resid="Option1.Label"/>
-
-                  <!--
-                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed  
-                  -->
-                  <Supertip>
-                    <Title resid="Placeholder.Supertip.Label"/>
-                    <Description resid="Placeholder.Supertip.Desc"/>
-                  </Supertip>
-
-                  <Icon>
-                    <bt:Image size="16" resid="Option1.Icon.16"/>
-                    <bt:Image size="32" resid="Option1.Icon.32"/>
-                    <bt:Image size="80" resid="Option1.Icon.80"/>
-                  </Icon>
-
-                  <!--
-                    Actions come in two flavors - ExecuteFunction or ShowTaskpane
-                  -->
-                  <Action xsi:type="ExecuteFunction">
-                    <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>placeholder</FunctionName>
-                  </Action>
-                </Control>
-
-                <Control xsi:type="Button" id="Placeholder-2">
-                  <Label resid="Option2.Label"/>
-
-                  <!--
-                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed  
-                  -->
-                  <Supertip>
-                    <Title resid="Placeholder.Supertip.Label"/>
-                    <Description resid="Placeholder.Supertip.Desc"/>
-                  </Supertip>
-
-                  <Icon>
-                    <bt:Image size="16" resid="Option2.Icon.16"/>
-                    <bt:Image size="32" resid="Option2.Icon.32"/>
-                    <bt:Image size="80" resid="Option2.Icon.80"/>
-                  </Icon>
-
-                  <!--
-                    Actions come in two flavors - ExecuteFunction or ShowTaskpane
-                  -->
-                  <Action xsi:type="ExecuteFunction">
-                    <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>placeholder</FunctionName>
-                  </Action>
-                </Control>
-              <!--TODO Add Menus or Controls here-->
-
-              </Group>
-
-              <!--Formatting Group-->
-
-              <Group id="FormattingGroup">
-              <Label resid="OT-FormattingGroup.Label"/>
-              <Icon>
-                <bt:Image size="16" resid="Placeholder.Icon.16"/>
-                <bt:Image size="32" resid="Placeholder.Icon.32"/>
-                <bt:Image size="80" resid="Placeholder.Icon.80"/>
-              </Icon>
-                <Control xsi:type="Button" id="Placeholder2">
-                  <Label resid="Placeholder.Label"/>
-
-                  <!--
-                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed  
-                  -->
-                  <Supertip>
-                    <Title resid="Placeholder.Supertip.Label"/>
-                    <Description resid="Placeholder.Supertip.Desc"/>
-                  </Supertip>
-
-                  <Icon>
-                    <bt:Image size="16" resid="Format.Icon.16"/>
-                    <bt:Image size="32" resid="Format.Icon.32"/>
-                    <bt:Image size="80" resid="Format.Icon.80"/>
-                  </Icon>
-
-                  <!--
-                    Actions come in two flavors - ExecuteFunction or ShowTaskpane
-                  -->
-                  <Action xsi:type="ExecuteFunction">
-                    <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>placeholder</FunctionName>
-                  </Action>
-                </Control>
-              <!--TODO Add Menus or Controls here-->
-
-              </Group>
-
               <!--Attachments Group-->
 
               <Group id="AttachmentsGroup">
@@ -309,44 +207,6 @@
                   <Action xsi:type="ExecuteFunction">
                     <!--This function must be available to the <FunctionFile> url listed in the manifest-->
                     <FunctionName>beginBullet</FunctionName>
-                  </Action>
-                </Control>
-              <!--TODO Add Menus or Controls here-->
-
-              </Group>
-
-              <!--Plain Text Group-->
-
-              <Group id="PlainTextGroup">
-              <Label resid="OT-PlainTextGroup.Label"/>
-              <Icon>
-                <bt:Image size="16" resid="Placeholder.Icon.16"/>
-                <bt:Image size="32" resid="Placeholder.Icon.32"/>
-                <bt:Image size="80" resid="Placeholder.Icon.80"/>
-              </Icon>
-                <Control xsi:type="Button" id="Placeholder6">
-                  <Label resid="Placeholder.Label"/>
-
-                  <!--
-                    Supertip is required, but only works on desktop clients. When you hover over a control button, this tooltip is displayed  
-                  -->
-                  <Supertip>
-                    <Title resid="Placeholder.Supertip.Label"/>
-                    <Description resid="Placeholder.Supertip.Desc"/>
-                  </Supertip>
-
-                  <Icon>
-                    <bt:Image size="16" resid="Plain.Icon.16"/>
-                    <bt:Image size="32" resid="Plain.Icon.32"/>
-                    <bt:Image size="80" resid="Plain.Icon.80"/>
-                  </Icon>
-
-                  <!--
-                    Actions come in two flavors - ExecuteFunction or ShowTaskpane
-                  -->
-                  <Action xsi:type="ExecuteFunction">
-                    <!--This function must be available to the <FunctionFile> url listed in the manifest-->
-                    <FunctionName>placeholder</FunctionName>
                   </Action>
                 </Control>
               <!--TODO Add Menus or Controls here-->
@@ -468,18 +328,6 @@
         <bt:Image id="Opertools.Icon.32" DefaultValue="https://localhost:3000/assets/opertools-icon-32.png"/>
         <bt:Image id="Opertools.Icon.80" DefaultValue="https://localhost:3000/assets/opertools-icon-80.png"/>
 
-        <bt:Image id="Option1.Icon.16" DefaultValue="https://localhost:3000/assets/option-1-icon-16.png"/>
-        <bt:Image id="Option1.Icon.32" DefaultValue="https://localhost:3000/assets/option-1-icon-32.png"/>
-        <bt:Image id="Option1.Icon.80" DefaultValue="https://localhost:3000/assets/option-1-icon-80.png"/>
-
-        <bt:Image id="Option2.Icon.16" DefaultValue="https://localhost:3000/assets/option-2-icon-16.png"/>
-        <bt:Image id="Option2.Icon.32" DefaultValue="https://localhost:3000/assets/option-2-icon-32.png"/>
-        <bt:Image id="Option2.Icon.80" DefaultValue="https://localhost:3000/assets/option-2-icon-80.png"/>
-
-        <bt:Image id="Format.Icon.16" DefaultValue="https://localhost:3000/assets/format-icon-16.png"/>
-        <bt:Image id="Format.Icon.32" DefaultValue="https://localhost:3000/assets/format-icon-32.png"/>
-        <bt:Image id="Format.Icon.80" DefaultValue="https://localhost:3000/assets/format-icon-80.png"/>
-        
         <bt:Image id="Attach.Icon.16" DefaultValue="https://localhost:3000/assets/attach-icon-16.png"/>
         <bt:Image id="Attach.Icon.32" DefaultValue="https://localhost:3000/assets/attach-icon-32.png"/>
         <bt:Image id="Attach.Icon.80" DefaultValue="https://localhost:3000/assets/attach-icon-80.png"/>
@@ -491,10 +339,6 @@
         <bt:Image id="Bullet.Icon.16" DefaultValue="https://localhost:3000/assets/bullet-icon-16.png"/>
         <bt:Image id="Bullet.Icon.32" DefaultValue="https://localhost:3000/assets/bullet-icon-32.png"/>
         <bt:Image id="Bullet.Icon.80" DefaultValue="https://localhost:3000/assets/bullet-icon-80.png"/>
-
-        <bt:Image id="Plain.Icon.16" DefaultValue="https://localhost:3000/assets/plain-icon-16.png"/>
-        <bt:Image id="Plain.Icon.32" DefaultValue="https://localhost:3000/assets/plain-icon-32.png"/>
-        <bt:Image id="Plain.Icon.80" DefaultValue="https://localhost:3000/assets/plain-icon-80.png"/>
 
         <bt:Image id="Note.Icon.16" DefaultValue="https://localhost:3000/assets/note-icon-16.png"/>
         <bt:Image id="Note.Icon.32" DefaultValue="https://localhost:3000/assets/note-icon-32.png"/>
@@ -527,12 +371,6 @@
         <bt:String id="Placeholder.Label" DefaultValue="TBD"/>
         <bt:String id="Placeholder.Supertip.Label" DefaultValue="Supertip label"/> 
 
-        <bt:String id="OT-TemplatesGroup.Label" DefaultValue="Templates"/>
-        <bt:String id="Option1.Label" DefaultValue="Option 1"/>
-        <bt:String id="Option2.Label" DefaultValue="Option 2"/>
-        
-        <bt:String id="OT-FormattingGroup.Label" DefaultValue="Formatting"/>
-
         <bt:String id="OT-AttachmentsGroup.Label" DefaultValue="Attachments"/>
         <bt:String id="Attachments.Label" DefaultValue="Add Attachment"/>
         <bt:String id="Attachments.Supertip.Label" DefaultValue="Add Attachment"/> 
@@ -544,8 +382,6 @@
         <bt:String id="OT-BulletGroup.Label" DefaultValue="Bulleting"/>
         <bt:String id="BulletedList.Label" DefaultValue="Bulleted List"/>
         <bt:String id="BulletedList.Supertip.Label" DefaultValue="Bulleted List"/> 
-
-        <bt:String id="OT-PlainTextGroup.Label" DefaultValue="Plain Text"/>
 
         <bt:String id="OT-NCWGroup.Label" DefaultValue="Note, Caution, Warning"/>
         <bt:String id="Note.Label" DefaultValue="Note"/>
