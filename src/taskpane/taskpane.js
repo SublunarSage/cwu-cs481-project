@@ -213,6 +213,7 @@ function insertCoverPage() {
       // Cover page content
       var coverPageContent = `
       <div style="text-align: center; font-family: Arial; font-size: 12pt; line-height: 1;">
+          <br><br><br>
           <p style="font-weight: bold; margin-bottom: 0.5em;">[Procedure Title]</p>
           <p style="font-weight: bold; margin-bottom: 0.5em;">[Procedure Number]</p>
           <p style="font-weight: bold; margin-bottom: 1.5em;">[Reactivity Statement]</p> <br>

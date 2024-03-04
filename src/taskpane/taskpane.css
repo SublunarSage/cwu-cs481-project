@@ -64,7 +64,7 @@
  .ms-welcome__action.ms-Button--hero {
      margin-top: 30px;
  }
- 
+ /*
 .ms-Button.ms-Button--hero .ms-Button-label {
   color: #0078d7;
 }
@@ -73,7 +73,29 @@
 .ms-Button.ms-Button--hero:focus .ms-Button-label{
   color: #005a9e;
   cursor: pointer;
+}*/
+
+/* Style for the buttons */
+.ms-Button {
+    background-color: #0078d4; /* Background color */
+    color: white; /* Text color */
+    border: none; /* Remove button border */
+    padding: 10px 20px; /* Add padding */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
+
+/* Hover effect */
+.ms-Button:hover {
+    background-color: #005a9e; /* Darker background color on hover */
+}
+
+/* Space between buttons */
+.ms-Button + .ms-Button {
+    margin-top: 10px; /* Adjust as needed */
+}
+
 
 b {
     font-weight: bold;
