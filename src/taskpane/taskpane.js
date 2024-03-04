@@ -11,10 +11,8 @@
 Office.onReady((info) => {
   if (info.host === Office.HostType.Word) {
     // Assign event handlers and other initialization logic.
-    // document.getElementById("test-btn").onclick = testmsg;
     document.getElementById("header-btn").onclick = createHeader;
     document.getElementById("cover-btn").onclick = insertCoverPage;
-    // document.getElementById("test-btn").onmousedown = testmsg;
     /*document.getElementById("sideload-msg").style.display = "none";
     document.getElementById("app-body").style.display = "flex";
     document.getElementById("add-style").onclick = () => tryCatch(addStyle);
@@ -29,59 +27,11 @@ Office.onReady((info) => {
   }
 });
 
-/*async function setStyleSectionHeader(event) {
-  await Word.run(async (context) => {
-    //Get selected range and expand it to include the whole first and last paragraphs
-    var selection = context.document.getSelection().getRange();
-    var firstParagraph = selection.paragraphs.getFirstOrNullObject();
-    var lastParagraph = selection.paragraphs.getLastOrNullObject();
-    var updatedSelection = selection.expandTo(firstParagraph.getRange()).expandTo(lastParagraph.getRange());
-    //load the paragraphs and await sync
-    updatedSelection.paragraphs.load();
-    await context.sync();
-
-    //console.log(updatedSelection.text)
-    updatedSelection.style = "test2";
-    await context.sync();
-
-    //Move the cursor to the end of the selection
-    updatedSelection.paragraphs.getLast().getNextOrNullObject().select("Start");
-  });
-  event.completed();
-}
-Office.actions.associate("setStyleSectionHeader", setStyleSectionHeader);*/
-
 // Placeholder for ribbon buttons
 async function placeholder(event) {
   event.completed();
 }
 Office.actions.associate("placeholder", placeholder);
-
-// Example function for ribbon buttons
-async function test(event) {
-  await Word.run(async (context) => {
-    let selection = context.document.getSelection(); // Get cursor location or highlighted text
-    context.load(selection)
-    await context.sync(); // Wait for Word to return the selection
-    // Print "WARNING" at end of cursor/highlight location
-    selection.insertText("WARNING", Word.InsertLocation.end);
-    // Set color to red
-    selection.font.color = "red";
-    await context.sync();
-  });
-  event.completed();
-}
-Office.actions.associate("test", test);
-
-// Example function for taskpane buttons
-async function testmsg() {
-  await Word.run(async (context) => {
-    const body = context.document.body; // Get the entire document body
-    // Print "Test." at the start of the document
-    body.insertParagraph("Test.", Word.InsertLocation.start);
-    await context.sync();
-  });
-}
 
 // Function to insert an attachment placeholder at the current selection (mouse cursor) position
 async function insertAttachment(event) {
@@ -295,8 +245,31 @@ function insertCoverPage() {
       }
   });
 }
-/** Default helper for invoking an action and handling errors. */
-/*async function tryCatch(callback) {
+
+/*async function setStyleSectionHeader(event) {
+  await Word.run(async (context) => {
+    //Get selected range and expand it to include the whole first and last paragraphs
+    var selection = context.document.getSelection().getRange();
+    var firstParagraph = selection.paragraphs.getFirstOrNullObject();
+    var lastParagraph = selection.paragraphs.getLastOrNullObject();
+    var updatedSelection = selection.expandTo(firstParagraph.getRange()).expandTo(lastParagraph.getRange());
+    //load the paragraphs and await sync
+    updatedSelection.paragraphs.load();
+    await context.sync();
+
+    //console.log(updatedSelection.text)
+    updatedSelection.style = "test2";
+    await context.sync();
+
+    //Move the cursor to the end of the selection
+    updatedSelection.paragraphs.getLast().getNextOrNullObject().select("Start");
+  });
+  event.completed();
+}
+Office.actions.associate("setStyleSectionHeader", setStyleSectionHeader);
+
+// Default helper for invoking an action and handling errors. 
+async function tryCatch(callback) {
   try {
     await callback();
   } catch (error) {
